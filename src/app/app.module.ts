@@ -22,7 +22,9 @@ import { SpaceXProvider } from '../providers/space-x/space-x';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      tabsPlacement: 'bottom',
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
