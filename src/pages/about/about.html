@@ -1,11 +1,55 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar  color="primary">
     <ion-title>
       About
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content no-padding>
+  <ion-card *ngIf="spaceXInfo" no-padding>
 
+    <img src="../../assets/imgs/spaceXposter.jpg">
+
+    <ion-card-header text-center color="primary">
+      {{ spaceXInfo.name }}
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ spaceXInfo.summary }}
+    </ion-card-content>
+
+    <ion-item>
+      <ion-icon name="home" item-start large></ion-icon>
+      <h2>Foundation</h2>
+      <p>Founded by {{ spaceXInfo.founder }} in {{ spaceXInfo.founded }}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="pin" item-left large></ion-icon>
+      <h2>Headquarter</h2>
+      <p> {{ spaceXInfo.headquarters.state}}, {{ spaceXInfo.headquarters.city }} </p>
+      <p> {{ spaceXInfo.headquarters.address }} </p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="people" item-left large></ion-icon>
+      <h2>Employees</h2>
+      <p> {{ spaceXInfo.employees}} </p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="jet" item-left large></ion-icon>
+      <h2>Launch Sites</h2>
+      <p> {{ spaceXInfo.launch_sites}} </p>
+      <p> Test Sites: {{ spaceXInfo.test_sites}} </p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="car" item-left large></ion-icon>
+      <h2>Vehicles</h2>
+      <p> {{ spaceXInfo.vehicles}} </p>
+    </ion-item>
+
+  </ion-card>
 </ion-content>
