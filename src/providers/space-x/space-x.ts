@@ -26,4 +26,14 @@ export class SpaceXProvider {
     });
   }
 
+  getAllRockets(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl + '/rockets').subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
 }

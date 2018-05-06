@@ -11,13 +11,16 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpaceXProvider } from '../providers/space-x/space-x';
+import { RocketsPage, RocketDetailsPage } from '../pages/rockets/rockets';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RocketsPage,
+    RocketDetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,9 @@ import { SpaceXProvider } from '../providers/space-x/space-x';
     MyApp,
     AboutPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RocketsPage,
+    RocketDetailsPage,
   ],
   providers: [
     StatusBar,
