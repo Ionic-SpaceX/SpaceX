@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpaceXProvider } from '../providers/space-x/space-x';
 import { RocketsPage, RocketDetailsPage } from '../pages/rockets/rockets';
+import { CapsulesPage } from '../pages/capsules/capsules';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RocketsPage, RocketDetailsPage } from '../pages/rockets/rockets';
     TabsPage,
     RocketsPage,
     RocketDetailsPage,
+    CapsulesPage,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { RocketsPage, RocketDetailsPage } from '../pages/rockets/rockets';
     TabsPage,
     RocketsPage,
     RocketDetailsPage,
+    CapsulesPage,
   ],
   providers: [
     StatusBar,
