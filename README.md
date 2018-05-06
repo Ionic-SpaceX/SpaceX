@@ -12,7 +12,7 @@ Ensure you have this installed before proceeding further
 Component         | Technology
 ---               | ---
 Frontend          | [Ionic 3](https://ionicframework.com) with [Angular 5](https://angular.io/)
-API| [SpaceX Data REST API](https://firebase.google.com/)
+API| [SpaceX Data REST API](https://github.com/r-spacex/SpaceX-API)
 
 ### Clone the repo
 ```
