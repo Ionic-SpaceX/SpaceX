@@ -6,28 +6,30 @@ import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpaceXProvider } from '../providers/space-x/space-x';
-import { RocketsPage, RocketDetailsPage } from '../pages/rockets/rockets';
-import { CapsulesPage } from '../pages/capsules/capsules';
-import {CapsulesPageModule} from "../pages/capsules/capsules.module";
-import {RocketsPageModule} from "../pages/rockets/rockets.module";
+import { CapsulesPageModule } from '../pages/capsules/capsules.module';
+import { RocketsPageModule } from '../pages/rockets/rockets.module';
+import { LaunchesPageModule } from '../pages/launches/launches.module';
+import { UpcomingLaunchesPageModule } from '../pages/upcoming-launches/upcoming-launches.module';
+import { PastLaunchesPageModule } from '../pages/past-launches/past-launches.module';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     HomePage,
-    TabsPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     CapsulesPageModule,
     RocketsPageModule,
+    LaunchesPageModule,
+    UpcomingLaunchesPageModule,
+    PastLaunchesPageModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'bottom',
     })
@@ -37,7 +39,6 @@ import {RocketsPageModule} from "../pages/rockets/rockets.module";
     MyApp,
     AboutPage,
     HomePage,
-    TabsPage
   ],
   providers: [
     StatusBar,
