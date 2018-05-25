@@ -13,20 +13,21 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpaceXProvider } from '../providers/space-x/space-x';
 import { RocketsPage, RocketDetailsPage } from '../pages/rockets/rockets';
 import { CapsulesPage } from '../pages/capsules/capsules';
+import {CapsulesPageModule} from "../pages/capsules/capsules.module";
+import {RocketsPageModule} from "../pages/rockets/rockets.module";
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     HomePage,
-    TabsPage,
-    RocketsPage,
-    RocketDetailsPage,
-    CapsulesPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    CapsulesPageModule,
+    RocketsPageModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'bottom',
     })
@@ -36,10 +37,7 @@ import { CapsulesPage } from '../pages/capsules/capsules';
     MyApp,
     AboutPage,
     HomePage,
-    TabsPage,
-    RocketsPage,
-    RocketDetailsPage,
-    CapsulesPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

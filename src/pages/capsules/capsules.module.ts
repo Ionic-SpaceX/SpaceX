@@ -9,5 +9,8 @@ import { CapsulesPage } from './capsules';
   imports: [
     IonicPageModule.forChild(CapsulesPage),
   ],
+  entryComponents: [
+    CapsulesPage
+  ]
 })
 export class CapsulesPageModule {}
