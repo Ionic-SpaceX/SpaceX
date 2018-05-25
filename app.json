@@ -1,0 +1,7 @@
+{
+  "name": "SpaceX",
+  "description": "App Description",
+  "repository": "https://github.com/Ionic-SpaceX/SpaceX",
+  "logo": "https://i.pinimg.com/originals/9a/21/4b/9a214b68fc4146d02a5b41882e79987c.jpg",
+  "keywords": ["ionic2", "heroku", "spaceX"]
+}
