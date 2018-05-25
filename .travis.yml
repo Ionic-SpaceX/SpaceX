@@ -1,6 +1,3 @@
-branches:
-  only:
-  - master
 matrix:
   include:
   - os: linux
@@ -61,11 +58,11 @@ env:
   - JAVA_HOME=/usr/lib/jvm/java-8-oracle
 deploy:
   provider: releases
-  api_key: "BmGJtuv2lXkuWQRifU0/LzAHsuosZxzoKvMMDukPNUpDAvkR1hGGBGmYqddNWlGEM26oZ5eqp1zfFXk7xccXUFrL8/DW8s5Jo6fFW/FOiG/sEbOC2jA/5xfNWkduDgAObZrI5J4tz+Csyfss1Mt/YkRnrQVFeQZt0Ifu5IWiNnq4423g+1NmylSuA4GH4DlKhwiHaXk4mz+/AfFHTYiqR1FaWc7ktNfUR/ReBBxSegiNAoMHuvXovEePLYn6jpNaP7gS5zdJ/7vvafPFUIgHjIZWrNjCsgzQ4d78fEE1D3ImB/8GuTZs3IyXqkrz6EjINuTveEYDxCj1FmGw+OJgM3Xyc2Ycj/wPZi4TjwWwdU2Rf+4cY8qz+YdA3yRafDLVavtZxN2CftBwvwIE3gBAua7/5+eJJqZD5QSA8A/ps1Y3gaUPHIO0ZhBPZWCSc12XzSKZvZXltMjVoQDrZO4YZ1TVJBZ+6gYUg4lZK/PYxn8aihekp1wA8B7WNqTsYZpYVdq3cM7t9Ckbu7vJCSXupvI+hH4tzrUk+l0hBOZHAHROKNRRO9nNh3arERtiIH/64DDXQrcNxg+67W2r2wgyfUmMxs1FcREVoOLvXaDNMrynglLQihzGfk2F1iDzMolwKWnF3RGBNHLMUDAgTf2quoLqWCvXVCQ6MMxPDSgt0wk="
-    secure:
+  api_key:
+    secure: BmGJtuv2lXkuWQRifU0/LzAHsuosZxzoKvMMDukPNUpDAvkR1hGGBGmYqddNWlGEM26oZ5eqp1zfFXk7xccXUFrL8/DW8s5Jo6fFW/FOiG/sEbOC2jA/5xfNWkduDgAObZrI5J4tz+Csyfss1Mt/YkRnrQVFeQZt0Ifu5IWiNnq4423g+1NmylSuA4GH4DlKhwiHaXk4mz+/AfFHTYiqR1FaWc7ktNfUR/ReBBxSegiNAoMHuvXovEePLYn6jpNaP7gS5zdJ/7vvafPFUIgHjIZWrNjCsgzQ4d78fEE1D3ImB/8GuTZs3IyXqkrz6EjINuTveEYDxCj1FmGw+OJgM3Xyc2Ycj/wPZi4TjwWwdU2Rf+4cY8qz+YdA3yRafDLVavtZxN2CftBwvwIE3gBAua7/5+eJJqZD5QSA8A/ps1Y3gaUPHIO0ZhBPZWCSc12XzSKZvZXltMjVoQDrZO4YZ1TVJBZ+6gYUg4lZK/PYxn8aihekp1wA8B7WNqTsYZpYVdq3cM7t9Ckbu7vJCSXupvI+hH4tzrUk+l0hBOZHAHROKNRRO9nNh3arERtiIH/64DDXQrcNxg+67W2r2wgyfUmMxs1FcREVoOLvXaDNMrynglLQihzGfk2F1iDzMolwKWnF3RGBNHLMUDAgTf2quoLqWCvXVCQ6MMxPDSgt0wk=
   file_glob: true
   file: output/*
   skip_cleanup: true
   overwrite: true
   on:
-    branch: master
+    repo: Ionic-SpaceX/SpaceX
