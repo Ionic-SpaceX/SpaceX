@@ -51,8 +51,9 @@ after_failure:
 
 before_deploy:
 - echo "Before Deploy Step."
+
 deploy:
-  - provider: releases
+- provider: releases
   api_key:
     secure: su8f8rR0NU8ueenSFlxfCJUfoAThVpUiQljZOWK/PUbo3e+pnqh6bMoZwp0azxx+8vM5MyYzstJ/qOg+aUz78MxUmnoBcEbAlCwNdy/tCMrI69RlkJgJ3ErkJDdgp7rmz5Qr0gGvL6YwbQMvLO07stt0JnfS9SZ0uKDPcFKG0Vh8ZoOnBDygSl1o3dWRaT6wuYENMO7pVG+VTw1mqjZsrvC+V9XXX56jWHPfTj3bZI6cJHjI6ZAScISUyw8Gu0WdU7ez/jOamvhJSYU6DOCBuCp7UgBKUJbokBBSDZnZrIW1jGewR6mjjH/2fS3OyEDULIvdI7e+/+7OU5ZM6wMFNybFBZR2UPaEC3iGVb3V6X+321GzriqBTlobX/ZZonerbzmjK6S6jO10uMG0jWOjSA5PDZhgJC3IO+GhphTh2fok8geG9kl6waOGpG6YuRIcywlsUwPMnsf9usGnUovCUvRUXNhM8VUAMiam6SlP2HHQ7SJnqUDWmuHjaAzlwcK/kDur0JqAcP9omL/aojsQIyx4cNJIgWTODafx/xWtSt/hF9A56EiAW6Uszvsexd7eQaTNWHn7s0OaWqyUS1PzvRHVDjlAA0arqBLgE45IF9mXA6YwEypv0XZnNt3V6Ck7dbaF+5RlLquDgc34RQFMt5rHnC72UmSNj8PNZ9ay7kM=
   file_glob: true
@@ -63,9 +64,9 @@ deploy:
     repo: Ionic-SpaceX/SpaceX
     tags: true
     all_branches: true
-  - provider: heroku
-    api_key:
-      secure: W8L9weyA+a6gXQM1BZ0ihn3sprkUuFyokys0cTu0T0UdffYbQqLc7W/9wgGNWcQJlplGND/b2PSkMbg6rJpGM/2q+faoDTCbAhwDHlITKetyiF+f03KIB6UsWd67NiYQnOxPbGZ8XkQ3Dy1A+LLcgoN11C4/pCawhCvyLWyKCvc2qYYfF9yxaJT+lPmaMaXQ6BWjiJah+KeRD7Rm77xcKBW1k2OLJ1UduNPPRKeezJ0ATfyx/XZBoMKSKDfW3plnUd4FD/Wmq0mgzn1bJrA+K2wO5kCJiSC8NwHs5QalNruBlnQxDTh34cx9VppS++YzN0ekwDHhC2aOcenfQgtEDoaf/Ouz4kYe3VoSVhLfxyUX3RyRV7DdUZ7b24R9YGPgRoEahTkBkb6+qpXcujYAYna4JRDfLoX/ihcVnpWTsA9uHlHCRGlF/8Ew1Uk3pppBaCBBfweqyhIg/bbcCeSaYMIUYjTVXAGR/IUWQPVFG35fNeH1t1wg+G/n30x9K2eszycGNxsap90P5nM0QNM0jQZH9Hi++fiIb01MWGFUQ789e2yrKqnzg86EOm7blZ2p3MzSklz5yOfLdWoOT0awLv3BotR0YEENKxy5Mfo+2y3u4xrbf/5Ztvq1wR38LYcMe/E+uh0ywmRZx932b3jH2d9+pFIJXREavmJD6mU0Y7w=
-    app: spacex-esgi
-    on:
-      repo: Ionic-SpaceX/SpaceX
+- provider: heroku
+  api_key:
+    secure: W8L9weyA+a6gXQM1BZ0ihn3sprkUuFyokys0cTu0T0UdffYbQqLc7W/9wgGNWcQJlplGND/b2PSkMbg6rJpGM/2q+faoDTCbAhwDHlITKetyiF+f03KIB6UsWd67NiYQnOxPbGZ8XkQ3Dy1A+LLcgoN11C4/pCawhCvyLWyKCvc2qYYfF9yxaJT+lPmaMaXQ6BWjiJah+KeRD7Rm77xcKBW1k2OLJ1UduNPPRKeezJ0ATfyx/XZBoMKSKDfW3plnUd4FD/Wmq0mgzn1bJrA+K2wO5kCJiSC8NwHs5QalNruBlnQxDTh34cx9VppS++YzN0ekwDHhC2aOcenfQgtEDoaf/Ouz4kYe3VoSVhLfxyUX3RyRV7DdUZ7b24R9YGPgRoEahTkBkb6+qpXcujYAYna4JRDfLoX/ihcVnpWTsA9uHlHCRGlF/8Ew1Uk3pppBaCBBfweqyhIg/bbcCeSaYMIUYjTVXAGR/IUWQPVFG35fNeH1t1wg+G/n30x9K2eszycGNxsap90P5nM0QNM0jQZH9Hi++fiIb01MWGFUQ789e2yrKqnzg86EOm7blZ2p3MzSklz5yOfLdWoOT0awLv3BotR0YEENKxy5Mfo+2y3u4xrbf/5Ztvq1wR38LYcMe/E+uh0ywmRZx932b3jH2d9+pFIJXREavmJD6mU0Y7w=
+  app: spacex-esgi
+  on:
+    repo: Ionic-SpaceX/SpaceX
