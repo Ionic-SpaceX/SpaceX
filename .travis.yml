@@ -1,53 +1,56 @@
-matrix:
-  include:
-  - os: linux
-    sudo: true
-    language: android
-    android:
-      components:
-      - tools
-      - platform-tools
-      - tools
-      - build-tools-26.0.0
-      - android-25
-      - extra-google-google_play_services
-      - extra-google-m2repository
-      - extra-android-m2repository
-    addons:
-      apt:
-        sources:
-        - sourceline: deb https://dl.yarnpkg.com/debian/ stable main
-          key_url: https://dl.yarnpkg.com/debian/pubkey.gpg
-        packages:
-        - oracle-java8-installer
-        - oracle-java8-set-default
-        - yarn
-        - jq
-    licenses:
-    - android-sdk-preview-license-.+
-    - android-sdk-license-.+
-    - google-gdk-license-.+
-before_cache:
-- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-- rm -f  $HOME/.gradle/caches/transforms-1/transforms-1.lock
-- rm -rf $HOME/.gradle/caches/3.5/fileHashes/
-- rm -rf $HOME/.gradle/caches/*/plugin-resolution/
-cache:
-  directories:
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
-  - "$HOME/Library/Caches/Yarn/v1/"
-  - "$HOME/.cache/yarn/v1/"
-before_install:
-- export LANG=en_US.UTF-8
-- nvm install 8
-- yarn global add ionic cordova
-script:
-- yarn install
-- ./travis/build-android.sh && ./travis/package-android.sh
+
+language: android
+
+android:
+  components:
+  - tools
+  - platform-tools
+  - build-tools-26.0.2
+  - android-26
+  - extra-google-google_play_services
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - addon-google_apis-google-26
+
 env:
   global:
   - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+  - secure: Dcw2b00aVho7kJwPVlbN/4BmTLNRaHHvSXr38mQ3VjKuEx5stkpFCJLnyW3UpgFxCrcs0DybvptUMrMuhpr2OxTAk5htyyIGywPSIOWQ8/pgVgZExUtoFMFhJ+9xZtVnDnRkAxS+4r7toFoOilEQoysRQg205HPEvpi4NarLJMz3BgF23E/wRLCSKyQCz1qK53n1oU//cog7dBSXe6sf0LraOsjXgReo++4xquRe6lVcLh2BWlToBJxKCMeuzZ9a4p2AwuKsThA1jg22JITIwo/gaGLc45vRkazgj4lIdHchqgRI65rgzPOyAJLRrK93T0TRdu1VLZSJbMpivNQX3Vl4ncIjYaEv6YeWftY089NrqlsyKD7jmmNpmFsnc3UebSvZ5JjvCi35r3UwalhhNInBHIrxFjtZaxBnsf3qUvvcOY1hK+zQMG2UrPwcgLNcihPC+s5yDJFwSxCcQdyLJS+uRQvGGqSG+uky66J+aR/jCYgGyS8vu7l3WuSiD1tJr7uUO9VwbJ02nFCIA6DmlUt0jEpU6Rs7NT12QrQAr/gk+FiKbtA2JejdV0vFC7x2VUMyoAcUQYby5DtmGQNSeXoW9nChgDmNdqRU7wtkJy0v81YSmZ4hbzEbVbRKfbrH1kMGMjC2/uIBPPtfnC4mEk88qi6LvFxycCkYfxloUFQ=
+
+
+before_install:
+- nvm install 8.11.1
+- npm install -g ionic cordova
+- echo "Before Install Step"
+
+install:
+- echo "Install Step"
+- npm install -g ionic cordova
+
+before_script:
+- echo "Before Script Step"
+
+script:
+- echo "Script Step"
+- npm i
+- rm -rf platforms
+- ionic cordova platform add android
+- ionic cordova build android
+
+before_cache:
+- echo "Before cache Step"
+
+cache:
+- echo "Cache Step"
+
+after_success:
+- echo "After Success Step"
+
+after_failure:
+- echo "After failure Step"
+
+before_deploy:
+- echo "Before Deploy Step."
 deploy:
   provider: releases
   api_key:
