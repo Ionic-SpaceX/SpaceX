@@ -1,0 +1,71 @@
+branches:
+  only:
+  - master
+matrix:
+  include:
+  - os: linux
+    sudo: false
+    language: android
+    android:
+      components:
+      - tools
+      - platform-tools
+      - tools
+      - build-tools-26.0.0
+      - android-25
+      - extra-google-google_play_services
+      - extra-google-m2repository
+      - extra-android-m2repository
+    addons:
+      apt:
+        sources:
+        - sourceline: deb https://dl.yarnpkg.com/debian/ stable main
+          key_url: https://dl.yarnpkg.com/debian/pubkey.gpg
+        packages:
+        - oracle-java8-installer
+        - oracle-java8-set-default
+        - yarn
+        - jq
+    licenses:
+    - android-sdk-preview-license-.+
+    - android-sdk-license-.+
+    - google-gdk-license-.+
+  - os: osx
+    language: objective-c
+    osx_image: xcode8.3
+before_cache:
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -f  $HOME/.gradle/caches/transforms-1/transforms-1.lock
+- rm -rf $HOME/.gradle/caches/3.5/fileHashes/
+- rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/Library/Caches/Yarn/v1/
+  - $HOME/.cache/yarn/v1/
+before_install:
+- export LANG=en_US.UTF-8
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; brew install yarn ios-sim
+  jq ios-deploy cocoapods ; rvm use system ; pod setup ; fi
+- nvm install 8
+- yarn global add ionic cordova
+before_script:
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./travis/addkeys.sh ; fi
+script:
+- yarn install
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./travis/build-ios.sh && ./travis/package-ios.sh ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis/build-android.sh && ./travis/package-android.sh ; fi
+env:
+  global:
+  - JAVA_HOME=/usr/lib/jvm/java-8-oracle
+deploy:
+  provider: releases
+  api_key: "BmGJtuv2lXkuWQRifU0/LzAHsuosZxzoKvMMDukPNUpDAvkR1hGGBGmYqddNWlGEM26oZ5eqp1zfFXk7xccXUFrL8/DW8s5Jo6fFW/FOiG/sEbOC2jA/5xfNWkduDgAObZrI5J4tz+Csyfss1Mt/YkRnrQVFeQZt0Ifu5IWiNnq4423g+1NmylSuA4GH4DlKhwiHaXk4mz+/AfFHTYiqR1FaWc7ktNfUR/ReBBxSegiNAoMHuvXovEePLYn6jpNaP7gS5zdJ/7vvafPFUIgHjIZWrNjCsgzQ4d78fEE1D3ImB/8GuTZs3IyXqkrz6EjINuTveEYDxCj1FmGw+OJgM3Xyc2Ycj/wPZi4TjwWwdU2Rf+4cY8qz+YdA3yRafDLVavtZxN2CftBwvwIE3gBAua7/5+eJJqZD5QSA8A/ps1Y3gaUPHIO0ZhBPZWCSc12XzSKZvZXltMjVoQDrZO4YZ1TVJBZ+6gYUg4lZK/PYxn8aihekp1wA8B7WNqTsYZpYVdq3cM7t9Ckbu7vJCSXupvI+hH4tzrUk+l0hBOZHAHROKNRRO9nNh3arERtiIH/64DDXQrcNxg+67W2r2wgyfUmMxs1FcREVoOLvXaDNMrynglLQihzGfk2F1iDzMolwKWnF3RGBNHLMUDAgTf2quoLqWCvXVCQ6MMxPDSgt0wk="
+    secure:
+  file_glob: true
+  file: output/*
+  skip_cleanup: true
+  overwrite: true
+  on:
+    branch: master
