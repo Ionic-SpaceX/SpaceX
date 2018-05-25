@@ -46,4 +46,56 @@ export class SpaceXProvider {
     });
   }
 
+  getAllLaunches(filters){
+    let receivedFilters;
+    const filtersKeys = filters != null ? Object.keys(filters) : null;
+    if (filtersKeys != null && filtersKeys.length > 0) {
+      filtersKeys.forEach((filter, index) => {
+        if( index === 0) {
+          receivedFilters += `?${filter}=${encodeURIComponent(filters[filter])}`;
+        }
+        else {
+          receivedFilters += `$${filter}=${encodeURIComponent(filters[filter])}`;
+        }
+      });
+    }
+    return new Promise(resolve => {
+      this.http.get(`${this.apiUrl}/launches/${receivedFilters}`).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
+  getPastLaunches(){
+    return new Promise(resolve => {
+      this.http.get(`${this.apiUrl}/launches`).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
+  getUpcomingLaunches(){
+    return new Promise(resolve => {
+      this.http.get(`${this.apiUrl}/launches/upcoming`).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
+  getNextLaunch(){
+    return new Promise(resolve => {
+      this.http.get(`${this.apiUrl}/launches/next`).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      })
+    })
+  }
+
 }
