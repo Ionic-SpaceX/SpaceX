@@ -1,3 +1,9 @@
+
+[![GitHub contributors](https://img.shields.io/github/contributors/Ionic-SpaceX/SpaceX.svg)](https://github.com/Ionic-SpaceX/SpaceX/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/Ionic-SpaceX/SpaceX.svg)](https://github.com/Ionic-SpaceX/SpaceX/issues)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/Ionic-SpaceX/SpaceX.svg)](https://GitHub.com/Ionic-SpaceX/SpaceX/pull/)
+[![Github all releases](https://img.shields.io/github/downloads/Ionic-SpaceX/SpaceX/total.svg)](https://GitHub.com/Ionic-SpaceX/SpaceX/releases/)
+
 # SpaceX
 A SpaceX Ionic App
 
