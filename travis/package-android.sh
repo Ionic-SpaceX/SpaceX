@@ -3,5 +3,5 @@
 set -e
 
 mkdir -p output
-cp platforms/android/build/outputs/apk/android-release-unsigned.apk output/ionictravis-release-unsigned.apk
+cp platforms/android/app/build/outputs/apk/debug/app-debug.apk output/ionictravis-release-unsigned.apk
 
