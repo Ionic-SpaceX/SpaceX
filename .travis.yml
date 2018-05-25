@@ -63,3 +63,9 @@ deploy:
     repo: Ionic-SpaceX/SpaceX
     tags: true
     all_branches: true
+  provider: heroku
+    api_key:
+      secure: W8L9weyA+a6gXQM1BZ0ihn3sprkUuFyokys0cTu0T0UdffYbQqLc7W/9wgGNWcQJlplGND/b2PSkMbg6rJpGM/2q+faoDTCbAhwDHlITKetyiF+f03KIB6UsWd67NiYQnOxPbGZ8XkQ3Dy1A+LLcgoN11C4/pCawhCvyLWyKCvc2qYYfF9yxaJT+lPmaMaXQ6BWjiJah+KeRD7Rm77xcKBW1k2OLJ1UduNPPRKeezJ0ATfyx/XZBoMKSKDfW3plnUd4FD/Wmq0mgzn1bJrA+K2wO5kCJiSC8NwHs5QalNruBlnQxDTh34cx9VppS++YzN0ekwDHhC2aOcenfQgtEDoaf/Ouz4kYe3VoSVhLfxyUX3RyRV7DdUZ7b24R9YGPgRoEahTkBkb6+qpXcujYAYna4JRDfLoX/ihcVnpWTsA9uHlHCRGlF/8Ew1Uk3pppBaCBBfweqyhIg/bbcCeSaYMIUYjTVXAGR/IUWQPVFG35fNeH1t1wg+G/n30x9K2eszycGNxsap90P5nM0QNM0jQZH9Hi++fiIb01MWGFUQ789e2yrKqnzg86EOm7blZ2p3MzSklz5yOfLdWoOT0awLv3BotR0YEENKxy5Mfo+2y3u4xrbf/5Ztvq1wR38LYcMe/E+uh0ywmRZx932b3jH2d9+pFIJXREavmJD6mU0Y7w=
+    app: spacex-esgi
+    on:
+      repo: Ionic-SpaceX/SpaceX
