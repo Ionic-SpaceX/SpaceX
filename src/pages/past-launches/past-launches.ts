@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { SpaceXProvider } from '../../providers/space-x/space-x';
+import { LaunchesFiltersModalPage } from '../launches-filters-modal/launches-filters-modal';
 
 /**
  * Generated class for the PastLaunchesPage page.
@@ -36,4 +37,20 @@ export class PastLaunchesPage {
     })
   }
 
+  openModal(){
+    const filtersModal = this.modalCtrl.create(LaunchesFiltersModalPage, { currentFilters: this.filters })
+    filtersModal.present();
+
+    filtersModal.onDidDismiss(newFilters => {
+      if (newFilters){
+        Object.keys(newFilters).forEach(filter => {
+          if (newFilters[filter] === ''){
+            delete newFilters[filter];
+          }
+        })
+        this.filters = newFilters;
+        this.getPastLaunches(this.filters);
+      }
+    });
+  }
 }

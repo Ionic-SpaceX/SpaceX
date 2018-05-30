@@ -16,6 +16,11 @@
 </ion-header>
 
 <ion-content>
+  <ion-fab top right edge>
+    <button ion-fab mini (click)="openModal()">
+      <ion-icon name="options"></ion-icon>
+    </button>
+  </ion-fab>
 
   <ion-list *ngIf="pastLaunches">
     <ion-item *ngFor="let launch of pastLaunches">

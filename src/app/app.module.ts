@@ -15,6 +15,7 @@ import { RocketsPageModule } from '../pages/rockets/rockets.module';
 import { LaunchesPageModule } from '../pages/launches/launches.module';
 import { UpcomingLaunchesPageModule } from '../pages/upcoming-launches/upcoming-launches.module';
 import { PastLaunchesPageModule } from '../pages/past-launches/past-launches.module';
+import { LaunchesFiltersModalPageModule } from '../pages/launches-filters-modal/launches-filters-modal.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PastLaunchesPageModule } from '../pages/past-launches/past-launches.mod
     LaunchesPageModule,
     UpcomingLaunchesPageModule,
     PastLaunchesPageModule,
+    LaunchesFiltersModalPageModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'bottom',
     })
