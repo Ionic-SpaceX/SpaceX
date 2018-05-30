@@ -40,7 +40,6 @@ export class RocketsPage {
     });
     loader.present();
     this.spaceXProvider.getAllRockets().then(data => {
-      console.log(data);
       this.rocketList = data;
       loader.dismiss();
     })

@@ -16,7 +16,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: any}>;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -27,11 +27,11 @@ export class MyApp {
     });
 
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'About', component: AboutPage },
-      { title: 'Rockets', component: RocketsPage },
-      { title: 'Capsule', component: CapsulesPage },
-      { title: 'Launches', component: LaunchesPage }
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'About', component: AboutPage, icon: 'information-circle' },
+      { title: 'Rockets', component: RocketsPage, icon: 'jet' },
+      { title: 'Capsule', component: CapsulesPage, icon: 'moon' },
+      { title: 'Missions', component: LaunchesPage, icon: 'planet' }
     ];
   }
 

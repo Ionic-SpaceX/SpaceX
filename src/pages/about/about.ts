@@ -20,7 +20,6 @@ export class AboutPage {
     });
     loader.present();
     this.spaceXProvider.getCompagnyInfo().then(data => {
-      console.log(data);
       this.spaceXInfo = data;
       loader.dismiss();
     })
