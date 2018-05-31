@@ -22,10 +22,6 @@ export class LaunchesPage {
   tab2Root = UpcomingLaunchesPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LaunchesPage');
   }
-
 }
