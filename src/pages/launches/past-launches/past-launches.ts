@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
-import { SpaceXProvider } from '../../providers/space-x/space-x';
+import { SpaceXProvider } from '../../../providers/space-x/space-x';
 import { LaunchesFiltersModalPage } from '../launches-filters-modal/launches-filters-modal';
 
 /**

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { PastLaunchesPage } from '../past-launches/past-launches';
-import { UpcomingLaunchesPage } from '../upcoming-launches/upcoming-launches';
+import { PastLaunchesPage } from './past-launches/past-launches';
+import { UpcomingLaunchesPage } from './upcoming-launches/upcoming-launches';
 
 /**
  * Generated class for the LaunchesPage page.
