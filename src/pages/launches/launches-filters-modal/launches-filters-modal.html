@@ -6,14 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-buttons start>
       <button ion-button (click)="resetFilters()">
         Reset
       </button>
     </ion-buttons>
 
-    <ion-title>Filters</ion-title>
+    <ion-title text-center>Filters</ion-title>
 
     <ion-buttons end>
       <button ion-button icon-only (click)="closeModal()">
@@ -76,6 +76,8 @@
   </ion-list>
 </ion-content>
 
-<ion-footer no-padding no-margin>
-  <button ion-button (click)="submitNewFilters()"> submit </button>
+<ion-footer>
+  <ion-toolbar color="spaceX" (click)="submitNewFilters()">
+    <ion-title text-center >Submit filters</ion-title>
+  </ion-toolbar>
 </ion-footer>
