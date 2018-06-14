@@ -33,6 +33,7 @@ export class LaunchesFiltersModalPage {
     this.filters = { order: 'desc' };
     this.filters.launch_year = '';
     this.filters.reused = '';
+    this.filters.launch_success = '';
   }
 
   submitNewFilters(){

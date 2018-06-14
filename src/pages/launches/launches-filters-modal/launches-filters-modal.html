@@ -27,6 +27,7 @@
 
 <ion-content>
   <ion-list *ngIf="filters">
+
     <ion-item-group>
       <ion-item-divider color="light">Order</ion-item-divider>
       <ion-item>
@@ -41,7 +42,18 @@
     </ion-item-group>
 
     <ion-item-group>
-      <ion-item-divider color="light">Time</ion-item-divider>
+      <ion-item-divider color="light">Launch Settings</ion-item-divider>
+
+      <ion-item>
+        <ion-label>
+          Launch Success
+        </ion-label>
+        <ion-select [(ngModel)]="filters.launch_success">
+          <ion-option value="true">Yes</ion-option>
+          <ion-option value="false">No</ion-option>
+        </ion-select>
+      </ion-item>
+
       <ion-item>
         <ion-label>
           Launch Year
@@ -72,6 +84,7 @@
           <ion-option value="false">No</ion-option>
         </ion-select>
       </ion-item>
+
     </ion-item-group>
   </ion-list>
 </ion-content>
