@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { SpaceXProvider } from '../../../providers/space-x/space-x';
 import { LaunchesFiltersModalPage } from '../launches-filters-modal/launches-filters-modal';
+import { LaunchDetailsPage } from '../launches';
 
 /**
  * Generated class for the PastLaunchesPage page.
@@ -23,7 +24,7 @@ export class PastLaunchesPage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider, private modalCtrl: ModalController, private loadingCtrl: LoadingController) {
-    this.getPastLaunches(this.filters);
+      this.getPastLaunches(this.filters);
   }
 
   getPastLaunches(filters){
@@ -35,6 +36,10 @@ export class PastLaunchesPage {
       this.pastLaunches = data;
       loader.dismiss();
     })
+  }
+
+  goToLaunchDetails(launch){
+    this.navCtrl.push(LaunchDetailsPage, launch);
   }
 
   openModal(){

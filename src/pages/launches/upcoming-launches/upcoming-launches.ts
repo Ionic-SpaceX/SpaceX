@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SpaceXProvider } from '../../../providers/space-x/space-x';
+import { LaunchDetailsPage } from '../launches';
 
 /**
  * Generated class for the UpcomingLaunchesPage page.
@@ -28,10 +29,12 @@ export class UpcomingLaunchesPage {
     });
     loader.present();
     this.spaceXProvider.getUpcomingLaunches().then(data => {
-      console.log(data);
       this.upcomingLaunches = data;
       loader.dismiss();
     });
   }
 
+  goToLaunchDetails(launch) {
+    this.navCtrl.push(LaunchDetailsPage , launch);
+  }
 }

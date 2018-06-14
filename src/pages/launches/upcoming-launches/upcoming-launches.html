@@ -27,23 +27,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-fab top right edge>
-    <button color="fabs" ion-fab mini>
-      <ion-icon name="options"></ion-icon>
-    </button>
-  </ion-fab>
 
   <ion-list *ngIf="upcomingLaunches">
     <ion-item *ngFor="let launch of upcomingLaunches">
-      <ion-thumbnail item-start *ngIf="launch.links.mission_patch_small">
-        <img src="{{launch.links.mission_patch_small}}">
-      </ion-thumbnail>
-      <h2>{{ launch.mission_name }}</h2>
+      <h2 ion-text color="primary" class="launch_name">{{ launch.mission_name }}</h2>
       <h3>{{ launch.rocket.rocket_type }} {{ launch.rocket.rocket_name }}</h3>
       <p>{{ launch.launch_date_utc | date: 'MMM d, y' }}</p>
       <p>{{ launch.launch_date_utc | date: 'h:mm a' }}</p>
       <p>{{ launch.launch_site.site_name }}</p>
-      <button ion-button clear item-end>View</button>
+      <button ion-button clear item-end (click)="goToLaunchDetails(launch)">View</button>
     </ion-item>
   </ion-list>
 </ion-content>

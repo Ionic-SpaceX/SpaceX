@@ -1,15 +1,46 @@
 page-launches {
+  a {
+    text-decoration: none;
+  }
+
+  ion-list {
     .item-block {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    left: 50%;
-    position: relative;
-    max-width: 95%;
-    margin: 10px 0 3px 0;
-    transform: translateX(-50%);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      left: 50%;
+      position: relative;
+      max-width: 95%;
+      margin: 10px 0 3px 0;
+      transform: translateX(-50%);
+    }
   }
 
   .list-ios .item-block .item-inner, .list-ios .item-block .item-inner, .list-ios > .item-block:first-child {
     border: none;
   }
 
+  .launch_name,
+  {
+    font-weight: 700;
+  }
+
+  .launch_details
+  {
+    text-align: justify
+  }
+
+  .launch_details {
+    ion-card {
+      box-shadow: none;
+      border-radius: none;
+    }
+
+    .nextLaunchTimerCard {
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      border-radius: 2px;
+
+      h2 {
+        font-weight: 700;
+      }
+    }
+  }
 }
