@@ -12,6 +12,16 @@
     </button>
     <ion-title>Missions</ion-title>
   </ion-navbar>
+  <ion-toolbar color="light-primary">
+    <ion-row text-center *ngIf="pastLaunches === undefined">
+      <ion-col>
+        <ion-spinner color="primary" name='crescent'></ion-spinner>
+      </ion-col>
+      </ion-row>
+      <p text-center text-uppercase *ngIf="pastLaunches" ion-text color="light">
+        {{ pastLaunches.length }} entries
+      </p>
+    </ion-toolbar>
 
 </ion-header>
 
