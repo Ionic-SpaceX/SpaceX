@@ -39,7 +39,8 @@
       </ion-thumbnail>
       <h2>{{ launch.mission_name }}</h2>
       <h3>{{ launch.rocket.rocket_type }} {{ launch.rocket.rocket_name }}</h3>
-      <p>{{ launch.launch_date_utc | date: 'MMM d, y h:mm a' }}</p>
+      <p>{{ launch.launch_date_utc | date: 'MMM d, y' }}</p>
+      <p>{{ launch.launch_date_utc | date: 'h:mm a' }}</p>
       <p>{{ launch.launch_site.site_name }}</p>
       <button ion-button clear item-end>View</button>
     </ion-item>
