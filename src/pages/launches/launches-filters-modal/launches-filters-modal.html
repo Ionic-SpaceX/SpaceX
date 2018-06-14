@@ -6,14 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-buttons start>
       <button ion-button (click)="resetFilters()">
         Reset
       </button>
     </ion-buttons>
 
-    <ion-title>Filters</ion-title>
+    <ion-title text-center>Filters</ion-title>
 
     <ion-buttons end>
       <button ion-button icon-only (click)="closeModal()">
@@ -27,6 +27,7 @@
 
 <ion-content>
   <ion-list *ngIf="filters">
+
     <ion-item-group>
       <ion-item-divider color="light">Order</ion-item-divider>
       <ion-item>
@@ -41,7 +42,18 @@
     </ion-item-group>
 
     <ion-item-group>
-      <ion-item-divider color="light">Time</ion-item-divider>
+      <ion-item-divider color="light">Launch Settings</ion-item-divider>
+
+      <ion-item>
+        <ion-label>
+          Launch Success
+        </ion-label>
+        <ion-select [(ngModel)]="filters.launch_success">
+          <ion-option value="true">Yes</ion-option>
+          <ion-option value="false">No</ion-option>
+        </ion-select>
+      </ion-item>
+
       <ion-item>
         <ion-label>
           Launch Year
@@ -72,10 +84,13 @@
           <ion-option value="false">No</ion-option>
         </ion-select>
       </ion-item>
+
     </ion-item-group>
   </ion-list>
 </ion-content>
 
-<ion-footer no-padding no-margin>
-  <button ion-button (click)="submitNewFilters()"> submit </button>
+<ion-footer no-border>
+  <ion-toolbar color="primary" (click)="submitNewFilters()">
+    <ion-title text-center >Submit filters</ion-title>
+  </ion-toolbar>
 </ion-footer>

@@ -13,9 +13,9 @@ import { SpaceXProvider } from '../providers/space-x/space-x';
 import { CapsulesPageModule } from '../pages/capsules/capsules.module';
 import { RocketsPageModule } from '../pages/rockets/rockets.module';
 import { LaunchesPageModule } from '../pages/launches/launches.module';
-import { UpcomingLaunchesPageModule } from '../pages/upcoming-launches/upcoming-launches.module';
-import { PastLaunchesPageModule } from '../pages/past-launches/past-launches.module';
-import { LaunchesFiltersModalPageModule } from '../pages/launches-filters-modal/launches-filters-modal.module';
+import { UpcomingLaunchesPageModule } from '../pages/launches/upcoming-launches/upcoming-launches.module';
+import { PastLaunchesPageModule } from '../pages/launches/past-launches/past-launches.module';
+import { LaunchesFiltersModalPageModule } from '../pages/launches/launches-filters-modal/launches-filters-modal.module';
 
 @NgModule({
   declarations: [
