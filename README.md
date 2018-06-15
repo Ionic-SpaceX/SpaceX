@@ -32,7 +32,7 @@ git clone git@github.com:RedHotMan/spaceX.git
 ```
 
 ### Install SpaceX App
-Execute on the root directory
+Execute code on the root directory
 ```
 npm install
 ```
