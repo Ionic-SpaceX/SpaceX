@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {CacheService} from "ionic-cache";
 
 /*
   Generated class for the SpaceXProvider provider.
@@ -12,38 +13,27 @@ export class SpaceXProvider {
 
   apiUrl: string = 'https://api.spacexdata.com/v2';
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient,private cache: CacheService) {
   }
 
   getCompagnyInfo() {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/info').subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    let cacheKey = this.apiUrl + '/info';
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromObservable(cacheKey, request);
   }
 
   getAllRockets(){
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/rockets').subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    let cacheKey = this.apiUrl + '/rockets';
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromObservable(cacheKey, request);
   }
 
   getAllCapsules(){
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/capsules').subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    let cacheKey = this.apiUrl + '/capsules';
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromObservable(cacheKey, request);
   }
+
 
   getAllLaunches(filters){
     let receivedFilters = '';
@@ -58,13 +48,11 @@ export class SpaceXProvider {
         }
       });
     }
-    return new Promise(resolve => {
-      this.http.get(`${this.apiUrl}/launches/${receivedFilters}`).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      })
-    })
+
+
+    let cacheKey = this.apiUrl + `/launches/${receivedFilters}`;
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromObservable(cacheKey, request);
   }
 
   getPastLaunches(filters){
@@ -80,32 +68,28 @@ export class SpaceXProvider {
         }
       });
     }
-    return new Promise(resolve => {
-      this.http.get(`${this.apiUrl}/launches/${receivedFilters}`).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      })
-    })
+    let cacheKey = this.apiUrl + `/launches/${receivedFilters}`;
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromObservable(cacheKey, request);
+
   }
 
   getUpcomingLaunches(){
-    return new Promise(resolve => {
-      this.http.get(`${this.apiUrl}/launches/upcoming`).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      })
-    })
+    let cacheKey = this.apiUrl + `/launches/upcoming`;
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromObservable(cacheKey, request);
+
   }
 
   getNextLaunch(){
-    return new Promise(resolve => {
-      this.http.get(`${this.apiUrl}/launches/next`).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      })
-    })
+    let cacheKey = this.apiUrl + `/launches/next`;
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromObservable(cacheKey, request);
+
+  }
+
+  isCachabled(key):Promise<string | boolean>{
+    let result = this.cache.itemExists(key);
+    return result;
   }
 }

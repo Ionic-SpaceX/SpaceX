@@ -16,6 +16,8 @@ import { LaunchesPageModule } from '../pages/launches/launches.module';
 import { UpcomingLaunchesPageModule } from '../pages/launches/upcoming-launches/upcoming-launches.module';
 import { PastLaunchesPageModule } from '../pages/launches/past-launches/past-launches.module';
 import { LaunchesFiltersModalPageModule } from '../pages/launches/launches-filters-modal/launches-filters-modal.module';
+import {CacheModule} from "ionic-cache";
+import {SettingsPageModule} from "../pages/settings/settings.module";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { LaunchesFiltersModalPageModule } from '../pages/launches/launches-filte
     UpcomingLaunchesPageModule,
     PastLaunchesPageModule,
     LaunchesFiltersModalPageModule,
+    SettingsPageModule,
+    CacheModule.forRoot({ keyPrefix: 'my-spacex-cache' }),
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'bottom',
     })

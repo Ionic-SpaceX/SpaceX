@@ -28,7 +28,7 @@ export class UpcomingLaunchesPage {
       content: "Please wait...",
     });
     loader.present();
-    this.spaceXProvider.getUpcomingLaunches().then(data => {
+    this.spaceXProvider.getUpcomingLaunches().subscribe(data => {
       this.upcomingLaunches = data;
       loader.dismiss();
     });
