@@ -32,7 +32,7 @@ export class PastLaunchesPage {
       content: "Please wait...",
     });
     loader.present();
-    this.spaceXProvider.getPastLaunches(filters).then(data => {
+    this.spaceXProvider.getPastLaunches(filters).subscribe(data => {
       this.pastLaunches = data;
       loader.dismiss();
     })

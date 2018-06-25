@@ -27,7 +27,7 @@ export class CapsulesPage {
       content: "Please wait...",
     });
     loader.present();
-    this.spaceXProvider.getAllCapsules().then(data => {
+    this.spaceXProvider.getAllCapsules().subscribe(data => {
       this.capsuleList = data;
       loader.dismiss();
     })

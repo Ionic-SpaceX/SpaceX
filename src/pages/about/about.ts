@@ -19,7 +19,7 @@ export class AboutPage {
       content: "Please wait...",
     });
     loader.present();
-    this.spaceXProvider.getCompagnyInfo().then(data => {
+    this.spaceXProvider.getCompagnyInfo().subscribe(data => {
       this.spaceXInfo = data;
       loader.dismiss();
     })

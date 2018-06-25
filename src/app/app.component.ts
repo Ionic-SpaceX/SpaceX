@@ -8,6 +8,8 @@ import { AboutPage } from '../pages/about/about';
 import { RocketsPage } from '../pages/rockets/rockets';
 import { CapsulesPage } from '../pages/capsules/capsules';
 import { LaunchesPage } from '../pages/launches/launches';
+import {CacheService} from "ionic-cache";
+import {SettingsPage} from "../pages/settings/settings";
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +20,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, icon: any}>;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,cache: CacheService) {
+    cache.setDefaultTTL(60 * 60);
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -31,7 +34,8 @@ export class MyApp {
       { title: 'About', component: AboutPage, icon: 'information-circle' },
       { title: 'Rockets', component: RocketsPage, icon: 'jet' },
       { title: 'Capsule', component: CapsulesPage, icon: 'moon' },
-      { title: 'Missions', component: LaunchesPage, icon: 'planet' }
+      { title: 'Missions', component: LaunchesPage, icon: 'planet' },
+      { title: 'Settings', component: SettingsPage, icon: 'cog' }
     ];
   }
 
