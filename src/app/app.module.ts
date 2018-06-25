@@ -3,9 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { firebaseConfig } from './app.firebase.config';
+import { AuthService } from '../providers/space-x/auth';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,11 +25,16 @@ import { LaunchesFiltersModalPageModule } from '../pages/launches/launches-filte
 import {CacheModule} from "ionic-cache";
 import {SettingsPageModule} from "../pages/settings/settings.module";
 
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     HomePage,
+    LoginPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -36,6 +47,7 @@ import {SettingsPageModule} from "../pages/settings/settings.module";
     LaunchesFiltersModalPageModule,
     SettingsPageModule,
     CacheModule.forRoot({ keyPrefix: 'my-spacex-cache' }),
+    AngularFireModule.initializeApp(firebaseConfig.fire),
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'bottom',
     })
@@ -45,12 +57,16 @@ import {SettingsPageModule} from "../pages/settings/settings.module";
     MyApp,
     AboutPage,
     HomePage,
+    LoginPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SpaceXProvider,
+    AngularFireAuth,
+    AuthService
   ]
 })
 export class AppModule {}
