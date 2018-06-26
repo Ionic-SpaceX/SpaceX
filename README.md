@@ -5,7 +5,7 @@
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/Ionic-SpaceX/SpaceX.svg)](https://GitHub.com/Ionic-SpaceX/SpaceX/pull/)
 [![Github all releases](https://img.shields.io/github/downloads/Ionic-SpaceX/SpaceX/total.svg)](https://GitHub.com/Ionic-SpaceX/SpaceX/releases/)
 
-# SpaceX
+## SpaceX
 A SpaceX Ionic App
 
 ### Prerequisites
