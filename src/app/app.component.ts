@@ -25,7 +25,7 @@ export class MyApp {
     constructor(platform: Platform,private statusBar: StatusBar, private aFauth: AngularFireAuth, private cache: CacheService) {
     this.platform = platform;
     this.initializeApp();
-    cache.setDefaultTTL(60 * 60);
+    this.cache.setDefaultTTL(60 * 60);
 
     aFauth.authState.subscribe(user => {
       if(user) {
