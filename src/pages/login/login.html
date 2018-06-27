@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="login-form">
+    <ion-item class="space">
+      <ion-input type="text" [(ngModel)]="user.email" placeholder="Email Address" clearInput></ion-input>
+    </ion-item>
+
+    <ion-item class="space">
+      <ion-input type="password" [(ngModel)]="user.password" placeholder="Password" clearInput></ion-input>
+    </ion-item>
+
+    <button ion-button full (click)="loginWithEmail(user)">Login</button>
+
+    <p ion-text text-center>Do not have account yet ?</p>
+
+    <button ion-button clear small color="primary" (click)="register()">Register</button>
+
+  </div>
+</ion-content>
