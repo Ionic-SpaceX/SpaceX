@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, MenuController } from 'ionic-angular';
+// import { AuthService } from '../../providers/space-x/auth';
+import { User } from '../../models/user';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../home/home';
-import { AuthService } from '../../providers/space-x/auth';
-import { SignupPage } from '../signup/signup';
+import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
@@ -11,44 +12,41 @@ import { SignupPage } from '../signup/signup';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-	loginForm: FormGroup;
-	loginError: string;
+  user = {} as User;
 
-	constructor(
-		private navCtrl: NavController,
-		private auth: AuthService,
-		fb: FormBuilder
-	) {
-		this.loginForm = fb.group({
-			email: ['', Validators.compose([Validators.required, Validators.email])],
-			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
-		});
-	}
+  constructor(private navCtrl: NavController, private aFauth: AngularFireAuth, public alertCtrl: AlertController, private menuCtrl: MenuController) {}
 
-  login() {
-		let data = this.loginForm.value;
+  ionViewDidEnter() {
+    this.menuCtrl.swipeEnable(false);
+  }
 
-		if (!data.email) {
-			return;
-		}
+  ionViewWillLeave() {
+    this.menuCtrl.swipeEnable(true);
+  }
 
-		let credentials = {
-			email: data.email,
-			password: data.password
-		};
-		this.auth.signInWithEmail(credentials)
-			.then(
-				() => this.navCtrl.setRoot(HomePage),
-				error => this.loginError = error.message
-			);
+  showAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: 'Login error!',
+      subTitle: message,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  async loginWithEmail(user : User) {
+    try {
+      const result = await this.aFauth.auth.signInWithEmailAndPassword(user.email, user.password);
+      console.log(result);
+      if(result) {
+        this.navCtrl.setRoot(HomePage);
+      }
     }
-
-  signup(){
-    this.navCtrl.push(SignupPage);
+    catch(e) {
+      this.showAlert(e.message);
+    }
   }
 
-  loginWithGoogle() {
-  	this.auth.signInWithGoogle();
+  register() {
+    this.navCtrl.push(RegisterPage);
   }
-
 }
