@@ -8,31 +8,35 @@ import { CapsulesPage } from '../pages/capsules/capsules';
 import { LaunchesPage } from '../pages/launches/launches';
 import {CacheService} from "ionic-cache";
 import {SettingsPage} from "../pages/settings/settings";
-import { AuthService } from '../providers/space-x/auth';
 import { LoginPage } from '../pages/login/login';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   templateUrl: 'app.html'
 })
 
 export class MyApp {
-  rootPage = LoginPage;
+  rootPage;
+  isUser: boolean = false;
   private platform;
 
   @ViewChild(Nav) nav: Nav;
-  pages: Array<{title: string, component: any, icon: any}>;
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, cache: CacheService, auth: AuthService) {
+    pages: Array<{title: string, component: any, icon: any}>;
+    constructor(platform: Platform,private statusBar: StatusBar, private aFauth: AngularFireAuth, private cache: CacheService) {
     this.platform = platform;
     this.initializeApp();
     cache.setDefaultTTL(60 * 60);
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
 
+    aFauth.authState.subscribe(user => {
+      if(user) {
+        this.rootPage = HomePage;
+      }
+      else {
+        this.rootPage = LoginPage;
+      }
+    })
+
+    this.isUserConnected();
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'About', component: AboutPage, icon: 'information-circle' },
@@ -44,11 +48,27 @@ export class MyApp {
   }
 
   initializeApp() {
-      this.platform.ready().then(() => {
-        this.statusBar.styleDefault();
-      });
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+    });
   }
+
   openPage(page) {
-  this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component);
+  }
+
+  logout(){
+    this.aFauth.auth.signOut();
+  }
+
+  isUserConnected(){
+    this.aFauth.authState.subscribe(user => {
+      if(user){
+        this.isUser = true;
+      }
+      else {
+        this.isUser = false;
+      }
+    })
   }
 }
