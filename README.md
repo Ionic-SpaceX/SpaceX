@@ -6,7 +6,9 @@
 [![Github all releases](https://img.shields.io/github/downloads/Ionic-SpaceX/SpaceX/total.svg)](https://GitHub.com/Ionic-SpaceX/SpaceX/releases/)
 
 ## SpaceX
-A SpaceX Ionic App
+
+A SpaceX Ionic App with cache management and authentication
+
 
 ### Prerequisites
 Ensure you have this installed before proceeding further
