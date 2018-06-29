@@ -24,6 +24,7 @@ import {SettingsPageModule} from "../pages/settings/settings.module";
 
 import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
+import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { RegisterPageModule } from '../pages/register/register.module';
     CacheModule.forRoot({ keyPrefix: 'my-spacex-cache' }),
     LoginPageModule,
     RegisterPageModule,
+    LaunchpadsPageModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'bottom',
     }),
