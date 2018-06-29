@@ -18,7 +18,7 @@ export class LaunchpadDetailsPage {
   launchpad;
   map: any;
 
-  constructor(params: NavParams, private spaceXprovider: SpaceXProvider) {
+  constructor(params: NavParams) {
     this.launchpad = params.data;
   }
 

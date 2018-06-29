@@ -47,6 +47,12 @@
             </ion-icon></mat-icon>
           <h3 matLine>{{pages[5].title}}</h3>
         </mat-list-item>
+        <mat-list-item [class.active]="isActivePage(pages[6])"  menuClose (click)="openPage(pages[6])">
+          <mat-icon matListIcon>
+            <ion-icon name="{{pages[6].icon}}">
+            </ion-icon></mat-icon>
+          <h3 matLine>{{pages[6].title}}</h3>
+        </mat-list-item>
 
       </mat-nav-list>
     </mat-nav-list>
