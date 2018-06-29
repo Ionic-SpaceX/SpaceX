@@ -24,6 +24,8 @@ import {SettingsPageModule} from "../pages/settings/settings.module";
 
 import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MaterialModule} from "./material.module";
 import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
 
 @NgModule({
@@ -35,6 +37,8 @@ import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
 
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     HttpClientModule,
     CapsulesPageModule,
     RocketsPageModule,
