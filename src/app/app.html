@@ -5,6 +5,7 @@
       <div class="header-overlay"></div>
       <h3>Space-X app</h3>
     </div>
+
     <mat-nav-list>
       <mat-nav-list>
         <mat-list-item  [class.active]="isActivePage(pages[0])" menuClose (click)="openPage(pages[0])">
@@ -13,13 +14,16 @@
             </ion-icon></mat-icon>
           <h3 matLine>{{pages[0].title}}</h3>
         </mat-list-item>
+
         <mat-list-item  [class.active]="isActivePage(pages[1])" menuClose (click)="openPage(pages[1])">
           <mat-icon matListIcon>
             <ion-icon name="{{pages[1].icon}}">
             </ion-icon></mat-icon>
           <h3 matLine>{{pages[1].title}}</h3>
         </mat-list-item>
+
         <mat-divider></mat-divider>
+
         <h3 mat-subheader>Vehicules</h3>
         <mat-list-item  [class.active]="isActivePage(pages[2])" menuClose (click)="openPage(pages[2])">
           <mat-icon matListIcon>
@@ -27,19 +31,23 @@
             </ion-icon></mat-icon>
           <h3 matLine>{{pages[2].title}}</h3>
         </mat-list-item>
+
         <mat-list-item  [class.active]="isActivePage(pages[3])" menuClose (click)="openPage(pages[3])">
           <mat-icon matListIcon>
             <ion-icon name="{{pages[3].icon}}">
             </ion-icon></mat-icon>
           <h3 matLine>{{pages[3].title}}</h3>
         </mat-list-item>
+
         <mat-list-item [class.active]="isActivePage(pages[4])"  menuClose (click)="openPage(pages[4])">
           <mat-icon matListIcon>
             <ion-icon name="{{pages[4].icon}}">
             </ion-icon></mat-icon>
           <h3 matLine>{{pages[4].title}}</h3>
         </mat-list-item>
+
         <mat-divider></mat-divider>
+
         <h3 mat-subheader>Others</h3>
         <mat-list-item [class.active]="isActivePage(pages[5])"  menuClose (click)="openPage(pages[5])">
           <mat-icon matListIcon>
@@ -47,11 +55,16 @@
             </ion-icon></mat-icon>
           <h3 matLine>{{pages[5].title}}</h3>
         </mat-list-item>
+
         <mat-list-item [class.active]="isActivePage(pages[6])"  menuClose (click)="openPage(pages[6])">
           <mat-icon matListIcon>
             <ion-icon name="{{pages[6].icon}}">
             </ion-icon></mat-icon>
           <h3 matLine>{{pages[6].title}}</h3>
+        </mat-list-item>
+
+        <mat-list-item *ngIf="isUser" menuClose (click)="logout()">
+          <h3 matLine>Logout</h3>
         </mat-list-item>
 
       </mat-nav-list>

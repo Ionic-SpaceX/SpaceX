@@ -90,7 +90,12 @@ export class SpaceXProvider {
     let cacheKey = this.apiUrl + `/launches/next`;
     let request = this.http.get(cacheKey);
     return this.cache.loadFromObservable(cacheKey, request);
+  }
 
+  getSpecificInformationWithId(information: String, id: String) {
+    let cacheKey = `${this.apiUrl}/${information}/${id}`;
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromDelayedObservable(cacheKey, request);
   }
 
   isCachabled(key):Promise<string | boolean>{

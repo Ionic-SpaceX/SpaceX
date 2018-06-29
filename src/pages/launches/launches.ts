@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { PastLaunchesPage } from './past-launches/past-launches';
 import { UpcomingLaunchesPage } from './upcoming-launches/upcoming-launches';
+import { SpaceXProvider } from '../../providers/space-x/space-x';
+import { RocketDetailsPage } from '../rockets/rockets';
 
 /**
  * Generated class for the LaunchesPage page.
@@ -21,7 +23,7 @@ export class LaunchDetailsPage {
   launchTime: any;
   launchTimeCountDown: any;
 
-  constructor(private navParams: NavParams, public navCtrl: NavController) {
+  constructor(private navParams: NavParams, public navCtrl: NavController, private spaceXProvider: SpaceXProvider, private loadingCtrl: LoadingController) {
     this.launch = navParams.data;
     this.sourcePageLaunch = this.navCtrl.getActive().name;
   }
@@ -35,6 +37,17 @@ export class LaunchDetailsPage {
 
   ionViewDidLeave() {
     this.stopRefresh();
+  }
+
+    getSpecificInformation(info: String, id: String) {
+    let loader = this.loadingCtrl.create({
+      content: "Please wait...",
+    });
+    loader.present();
+    this.spaceXProvider.getSpecificInformationWithId(info, id ).subscribe(data => {
+      this.navCtrl.push(RocketDetailsPage, data);
+      loader.dismiss();
+    });
   }
 
   initRefreshCountDown() {

@@ -29,13 +29,13 @@
 <ion-content>
 
   <ion-list *ngIf="upcomingLaunches">
-    <ion-item *ngFor="let launch of upcomingLaunches">
+    <ion-item *ngFor="let launch of upcomingLaunches" (click)="goToLaunchDetails(launch)">
       <h2 ion-text color="primary" class="launch_name">{{ launch.mission_name }}</h2>
       <h3>{{ launch.rocket.rocket_type }} {{ launch.rocket.rocket_name }}</h3>
       <p>{{ launch.launch_date_utc | date: 'MMM d, y' }}</p>
       <p>{{ launch.launch_date_utc | date: 'h:mm a' }}</p>
       <p>{{ launch.launch_site.site_name }}</p>
-      <button ion-button clear item-end (click)="goToLaunchDetails(launch)">View</button>
+      <button ion-button clear item-end >View</button>
     </ion-item>
   </ion-list>
 </ion-content>
