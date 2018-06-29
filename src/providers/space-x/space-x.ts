@@ -34,6 +34,11 @@ export class SpaceXProvider {
     return this.cache.loadFromObservable(cacheKey, request);
   }
 
+  getlaunchpads() {
+    let cacheKey = `${this.apiUrl}/launchpads`;
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromDelayedObservable(cacheKey, request);
+  }
 
   getAllLaunches(filters){
     let receivedFilters = '';
