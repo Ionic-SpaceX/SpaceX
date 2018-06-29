@@ -9,6 +9,7 @@ import { LaunchesPage } from '../pages/launches/launches';
 import {CacheService} from "ionic-cache";
 import {SettingsPage} from "../pages/settings/settings";
 import { AngularFireAuth } from 'angularfire2/auth';
+import {LoginPage} from "../pages/login/login";
 
 @Component({
   templateUrl: 'app.html'
@@ -25,10 +26,7 @@ export class MyApp {
     constructor(platform: Platform,private statusBar: StatusBar, private aFauth: AngularFireAuth, private cache: CacheService) {
     this.platform = platform;
     this.initializeApp();
-    this.rootPage = HomePage;
-    this.activePage = HomePage;
     this.cache.setDefaultTTL(60 * 60);
-/*
     aFauth.authState.subscribe(user => {
       if(user) {
         this.rootPage = HomePage;
@@ -36,9 +34,10 @@ export class MyApp {
       else {
         this.rootPage = LoginPage;
       }
-    })
+    });
 
-    this.isUserConnected();*/
+    this.activePage = HomePage;
+    this.isUserConnected();
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'About', component: AboutPage, icon: 'information-circle' },
