@@ -10,6 +10,8 @@ import {CacheService} from "ionic-cache";
 import {SettingsPage} from "../pages/settings/settings";
 import { AngularFireAuth } from 'angularfire2/auth';
 import {LoginPage} from "../pages/login/login";
+import { LaunchpadsPage } from '../pages/launchpads/launchpads';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -44,6 +46,7 @@ export class MyApp {
       { title: 'Rockets', component: RocketsPage, icon: 'jet' },
       { title: 'Capsule', component: CapsulesPage, icon: 'moon' },
       { title: 'Missions', component: LaunchesPage, icon: 'planet' },
+      { title: 'Launchpads', component: LaunchpadsPage, icon: 'pin'},
       { title: 'Settings', component: SettingsPage, icon: 'cog' }
     ];
   }

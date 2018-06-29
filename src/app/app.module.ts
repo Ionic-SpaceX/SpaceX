@@ -26,6 +26,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MaterialModule} from "./material.module";
+import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {MaterialModule} from "./material.module";
     CacheModule.forRoot({ keyPrefix: 'my-spacex-cache' }),
     LoginPageModule,
     RegisterPageModule,
+    LaunchpadsPageModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'bottom',
     }),
