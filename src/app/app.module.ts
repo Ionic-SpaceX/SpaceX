@@ -24,6 +24,8 @@ import {SettingsPageModule} from "../pages/settings/settings.module";
 
 import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MaterialModule} from "./material.module";
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { RegisterPageModule } from '../pages/register/register.module';
 
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     HttpClientModule,
     CapsulesPageModule,
     RocketsPageModule,
