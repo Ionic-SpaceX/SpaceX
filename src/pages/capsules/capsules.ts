@@ -26,11 +26,12 @@ export class CapsulesPage {
     let loader = this.loadingCtrl.create({
       content: "Please wait...",
     });
-    loader.present();
-    this.spaceXProvider.getAllCapsules().subscribe(data => {
-      this.capsuleList = data;
-      loader.dismiss();
-    })
+    loader.present().then(() => {
+      this.spaceXProvider.getAllCapsules().subscribe(data => {
+        this.capsuleList = data;
+        loader.dismiss();
+      })
+    });
   }
 
 }

@@ -18,11 +18,12 @@ export class AboutPage {
     let loader = this.loadingCtrl.create({
       content: "Please wait...",
     });
-    loader.present();
-    this.spaceXProvider.getCompagnyInfo().subscribe(data => {
-      this.spaceXInfo = data;
-      loader.dismiss();
-    })
+    loader.present().then(() => {
+      this.spaceXProvider.getCompagnyInfo().subscribe(data => {
+        this.spaceXInfo = data;
+        loader.dismiss();
+      })
+    });
   }
 
 }

@@ -59,11 +59,12 @@ export class LaunchpadsPage {
     let loader = this.loadingCtrl.create({
       content: "Please wait...",
     });
-    loader.present();
-    this.spaceXprovider.getlaunchpads().subscribe(data => {
-      console.log(data);
-      this.launchpads = data;
-      loader.dismiss();
+    loader.present().then(() => {
+      this.spaceXprovider.getlaunchpads().subscribe(data => {
+        console.log(data);
+        this.launchpads = data;
+        loader.dismiss();
+      });
     });
   }
 

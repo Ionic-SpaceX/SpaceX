@@ -5,6 +5,7 @@ import { PastLaunchesPage } from './past-launches/past-launches';
 import { UpcomingLaunchesPage } from './upcoming-launches/upcoming-launches';
 import { SpaceXProvider } from '../../providers/space-x/space-x';
 import { RocketDetailsPage } from '../rockets/rockets';
+import { LaunchpadDetailsPage } from '../launchpads/launchpads';
 
 /**
  * Generated class for the LaunchesPage page.
@@ -39,14 +40,24 @@ export class LaunchDetailsPage {
     this.stopRefresh();
   }
 
-    getSpecificInformation(info: String, id: String) {
-    let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-    });
-    loader.present();
-    this.spaceXProvider.getSpecificInformationWithId(info, id ).subscribe(data => {
-      this.navCtrl.push(RocketDetailsPage, data);
-      loader.dismiss();
+  getSpecificInformation(info: String, id: String) {
+    this.spaceXProvider.getSpecificInformationWithId(info, id).subscribe(data => {
+      let loader =  this.loadingCtrl.create({
+        content: "Please wait..."
+      });
+      loader.present().then(() => {
+        switch (info) {
+          case 'rockets':
+            this.navCtrl.push(RocketDetailsPage, data);
+            break;
+          case 'launchpads':
+            this.navCtrl.push(LaunchpadDetailsPage, data);
+            break;
+          default:
+            return;
+        }
+        loader.dismiss();
+      });
     });
   }
 

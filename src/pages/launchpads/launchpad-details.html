@@ -12,38 +12,35 @@
 
 <ion-content>
     <ion-card>
-      <div id="launchpadMap" style="width: 100%; height: 300px;">
+      <div id="launchpadMap" style="width: 100%; height: 300px;"></div>
 
+      <div class="cardContent" text-justify>
+        <ion-card-header text-wrap text-center color="primary">
+          {{ launchpad.full_name }}
+          <p>
+            <ion-badge [color]="launchpad.status ? 'secondary' : 'danger'">
+              {{ launchpad.status ? 'Active' : 'Retired' }}
+            </ion-badge>
+          </p>
+        </ion-card-header>
+
+        <ion-card-content>
+          {{ launchpad.details }}
+        </ion-card-content>
+
+        <ion-item>
+          <ion-icon color="primary" name="pin" item-start large></ion-icon>
+          <h2 ion-text color="primary">Location</h2>
+          <p>{{ launchpad.location.region }}</p>
+          <p>{{ launchpad.location.name }}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon color="primary" name="jet" item-start large></ion-icon>
+          <h2 ion-text color="primary">Vehicules launched</h2>
+          <p *ngFor="let rocket of launchpad.vehicles_launched">{{ rocket }}</p>
+        </ion-item>
       </div>
-      <ion-card-header text-wrap text-center color="primary">
-        {{ launchpad.full_name }}
-        <p>
-          <ion-badge [color]="launchpad.status ? 'secondary' : 'danger'">
-            {{ launchpad.status ? 'Active' : 'Retired' }}
-          </ion-badge>
-        </p>
-      </ion-card-header>
-
-      <ion-card-content>
-        {{ launchpad.details }}
-      </ion-card-content>
-
-      <ion-item>
-        <ion-icon color="primary" name="pin" item-start large></ion-icon>
-        <h2 ion-text color="primary">Location</h2>
-        <p>{{ launchpad.location.region }}</p>
-        <p>{{ launchpad.location.name }}</p>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon color="primary" name="jet" item-start large></ion-icon>
-        <h2 ion-text color="primary">Vehicules launched</h2>
-        <ion-list no-lines>
-          <button ion-item *ngFor="let rocket of launchpad.vehicles_launched">
-            <p>{{ rocket }}</p>
-          </button>
-        </ion-list>
-      </ion-item>
 
     </ion-card>
 </ion-content>

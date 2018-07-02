@@ -16,95 +16,106 @@
 
     <img *ngIf="launch.links.mission_patch" src="{{launch.links.mission_patch}}">
 
-    <ion-card-header text-center color="primary">
-      <h2 ion-text color="primary" class="launch_name">{{ launch.mission_name }}</h2>
-      <ion-badge *ngIf="launch.launch_success !== null" [color]="launch.launch_success ? 'secondary' : 'danger'">
-        Launch {{ launch.launch_success ? 'succeed' : 'failed' }}
-      </ion-badge>
-    </ion-card-header>
-
-    <ion-card class="nextLaunchTimerCard" *ngIf="sourcePageLaunch === 'UpcomingLaunchesPage'" >
-      <ion-card-header text-center>
-        <h2 ion-text color="primary">Launch Count Down</h2>
+    <div class="cardContent" text-justify>
+      <ion-card-header text-center color="primary">
+        <h2 ion-text color="primary" class="launch_name">{{ launch.mission_name }}</h2>
+        <ion-badge *ngIf="launch.launch_success !== null" [color]="launch.launch_success ? 'secondary' : 'danger'">
+          Launch {{ launch.launch_success ? 'succeed' : 'failed' }}
+        </ion-badge>
       </ion-card-header>
 
-      <ion-card-content>
-        <ion-row text-center *ngIf="launchTimeCountDown === undefined">
-          <ion-col>
-            <ion-spinner name='crescent'></ion-spinner>
-          </ion-col>
-        </ion-row>
-        <div *ngIf="launchTimeCountDown" class="launchCountDown">
-          <ion-row text-center>
+      <ion-card class="nextLaunchTimerCard" *ngIf="sourcePageLaunch === 'UpcomingLaunchesPage'">
+        <ion-card-header text-center>
+          <h2 ion-text color="primary">Launch Count Down</h2>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-row text-center *ngIf="launchTimeCountDown === undefined">
             <ion-col>
-              <h2>{{ launchTimeCountDown.day }}</h2>
-              <sub ion-text color="primary">DAYS</sub>
-            </ion-col>
-            <ion-col>
-              <h2>{{ launchTimeCountDown.hour }}</h2>
-              <sub ion-text color="primary">HOURS</sub>
-            </ion-col>
-            <ion-col>
-              <h2>{{ launchTimeCountDown.minute }}</h2>
-              <sub ion-text color="primary">MINUTES</sub>
-            </ion-col>
-            <ion-col>
-              <h2>{{ launchTimeCountDown.seconds }}</h2>
-              <sub ion-text color="primary">SECONDS</sub>
+              <ion-spinner name='crescent'></ion-spinner>
             </ion-col>
           </ion-row>
-        </div>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-item text-wrap (click)="getSpecificInformation('rockets', launch.rocket.rocket_id)">
-      <ion-icon color="primary" name="jet" item-start></ion-icon>
-      <h2 ion-text color="primary">Rocket</h2>
-      <p>{{ launch.rocket.rocket_type }} {{ launch.rocket.rocket_name }}</p>
-    </ion-item>
-
-    <ion-item text-wrap>
-      <ion-icon color="primary" name="pin" item-start></ion-icon>
-      <h2 ion-text color="primary">Launch Site</h2>
-      <p>{{ launch.launch_site.site_name_long }}</p>
-    </ion-item>
-
-    <ion-item text-wrap *ngIf="sourcePageLaunch === 'PastLaunchesPage'">
-      <ion-icon color="primary" name="time" item-start></ion-icon>
-      <h2 ion-text color="primary">Launch Time</h2>
-      <p>{{ launch.launch_date_utc | date: 'MMM d, y h:mm a' }}</p>
-    </ion-item>
-
-    <ion-card-content *ngIf="launch.details">
-      <p class="launch_details">
-         {{ launch.details }}
-      </p>
-    </ion-card-content>
-
-    <ion-row>
-      <ion-col align-self-center text-center *ngIf="launch.links.video_link">
-        <button ion-button icon-left clear small>
-          <ion-icon name="logo-youtube"></ion-icon>
-          <div><a href="{{ launch.links.video_link}}">Video</a></div>
-        </button>
-      </ion-col>
-
-      <ion-col align-self-center text-center *ngIf="launch.links.article_link">
-        <button ion-button icon-left clear small>
-          <ion-icon name="book"></ion-icon>
-          <div><a href="{{ launch.links.article_link}}">Article</a></div>
-        </button>
-      </ion-col>
-
-      <ion-col align-self-center text-center *ngIf="launch.links.reddit_launch">
-        <button ion-button icon-left clear small>
-          <ion-icon name="logo-reddit"></ion-icon>
-          <div>
-            <a href="{{ launch.links.reddit_launch}}">Reddit</a>
+          <div *ngIf="launchTimeCountDown" class="launchCountDown">
+            <ion-row text-center>
+              <ion-col>
+                <h2>{{ launchTimeCountDown.day }}</h2>
+                <sub ion-text color="primary">DAYS</sub>
+              </ion-col>
+              <ion-col>
+                <h2>{{ launchTimeCountDown.hour }}</h2>
+                <sub ion-text color="primary">HOURS</sub>
+              </ion-col>
+              <ion-col>
+                <h2>{{ launchTimeCountDown.minute }}</h2>
+                <sub ion-text color="primary">MINUTES</sub>
+              </ion-col>
+              <ion-col>
+                <h2>{{ launchTimeCountDown.seconds }}</h2>
+                <sub ion-text color="primary">SECONDS</sub>
+              </ion-col>
+            </ion-row>
           </div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-item text-wrap>
+        <ion-icon color="primary" name="jet" item-start></ion-icon>
+        <h2 ion-text color="primary">Rocket</h2>
+        <button ion-item (click)="getSpecificInformation('rockets', launch.rocket.rocket_id)">
+          <p>{{ launch.rocket.rocket_type }} {{ launch.rocket.rocket_name }}</p>
         </button>
-      </ion-col>
-    </ion-row>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-icon color="primary" name="pin" item-start></ion-icon>
+        <h2 ion-text color="primary">Launch Site</h2>
+        <button ion-item (click)="getSpecificInformation('launchpads', launch.launch_site.site_id)">
+          <p>{{ launch.launch_site.site_name_long }}</p>
+        </button>
+      </ion-item>
+
+      <ion-item text-wrap *ngIf="sourcePageLaunch === 'PastLaunchesPage'">
+        <ion-icon color="primary" name="time" item-start></ion-icon>
+        <h2 ion-text color="primary">Launch Time</h2>
+        <p>{{ launch.launch_date_utc | date: 'MMM d, y h:mm a' }}</p>
+      </ion-item>
+
+      <ion-card-content *ngIf="launch.details">
+        <p class="launch_details">
+          {{ launch.details }}
+        </p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col align-self-center text-center *ngIf="launch.links.video_link">
+          <button ion-button icon-left clear small>
+            <ion-icon name="logo-youtube"></ion-icon>
+            <div>
+              <a href="{{ launch.links.video_link}}">Video</a>
+            </div>
+          </button>
+        </ion-col>
+
+        <ion-col align-self-center text-center *ngIf="launch.links.article_link">
+          <button ion-button icon-left clear small>
+            <ion-icon name="book"></ion-icon>
+            <div>
+              <a href="{{ launch.links.article_link}}">Article</a>
+            </div>
+          </button>
+        </ion-col>
+
+        <ion-col align-self-center text-center *ngIf="launch.links.reddit_launch">
+          <button ion-button icon-left clear small>
+            <ion-icon name="logo-reddit"></ion-icon>
+            <div>
+              <a href="{{ launch.links.reddit_launch}}">Reddit</a>
+            </div>
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </div>
 
   </ion-card>
 </ion-content>
