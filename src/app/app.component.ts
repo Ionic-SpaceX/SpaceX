@@ -9,7 +9,7 @@ import { LaunchesPage } from '../pages/launches/launches';
 import {CacheService} from "ionic-cache";
 import {SettingsPage} from "../pages/settings/settings";
 import { AngularFireAuth } from 'angularfire2/auth';
-import {LoginPage} from "../pages/login/login";
+import { LoginPage } from "../pages/login/login";
 import { LaunchpadsPage } from '../pages/launchpads/launchpads';
 
 
@@ -29,6 +29,7 @@ export class MyApp {
     this.platform = platform;
     this.initializeApp();
     this.cache.setDefaultTTL(60 * 60);
+
     aFauth.authState.subscribe(user => {
       if(user) {
         this.rootPage = HomePage;

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SpaceXProvider } from '../../providers/space-x/space-x';
-import {CacheService} from "ionic-cache";
 
 /**
  * Generated class for the RocketsPage page.
@@ -31,20 +30,20 @@ export class RocketsPage {
 
   rocketList: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider, private loadingCtrl: LoadingController,private cache: CacheService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider, private loadingCtrl: LoadingController) {
     this.getAllRockets();
-    console.log(this.cache.getRawItems());
   }
 
   getAllRockets(){
     let loader = this.loadingCtrl.create({
       content: "Please wait...",
     });
-    loader.present();
-    this.spaceXProvider.getAllRockets().subscribe(data => {
-      this.rocketList = data;
-      loader.dismiss();
-    })
+    loader.present().then(() => {
+      this.spaceXProvider.getAllRockets().subscribe(data => {
+        this.rocketList = data;
+        loader.dismiss();
+      })
+    });
   }
 
   goToRocketDetails(rocket){

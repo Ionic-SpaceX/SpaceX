@@ -20,56 +20,60 @@
       <img *ngIf="rocket.name === 'Falcon 9'" src="assets/imgs/rockets/falcon9.jpg">
       <img *ngIf="rocket.name === 'Falcon Heavy'" src="assets/imgs/rockets/falcon_heavy.jpg">
 
-      <ion-card-header text-center color="primary">
-        {{ rocket.name }}
-        <ion-badge [color]="rocket.active ? 'secondary' : 'danger'">
-          {{ rocket.active ? 'Active' : 'Inactive' }}
-        </ion-badge>
-      </ion-card-header>
+      <div class="cardContent" text-justify>
+        <ion-card-header text-center color="primary">
+          {{ rocket.name }}
+          <ion-badge [color]="rocket.active ? 'secondary' : 'danger'">
+            {{ rocket.active ? 'Active' : 'Inactive' }}
+          </ion-badge>
+        </ion-card-header>
 
-      <ion-card-content>
-        {{ rocket.description }}
-        <ion-row text-center>
-          <ion-col col-6>
-            <ion-badge [color]="rocket.boosters > 0 ? 'secondary' : 'danger'">
-              {{ rocket.boosters > 0 ? rocket.boosters + ' Boosters' : 'No Boosters' }}
-            </ion-badge>
-          </ion-col>
+        <ion-card-content>
+          {{ rocket.description }}
+          <ion-row text-center>
+            <ion-col col-6>
+              <ion-badge [color]="rocket.boosters > 0 ? 'secondary' : 'danger'">
+                {{ rocket.boosters > 0 ? rocket.boosters + ' Boosters' : 'No Boosters' }}
+              </ion-badge>
+            </ion-col>
 
-          <ion-col col-6>
-            <ion-badge color="primary">
-              {{ rocket.stages }} Stages
-            </ion-badge>
-          </ion-col>
-        </ion-row>
+            <ion-col col-6>
+              <ion-badge color="primary">
+                {{ rocket.stages }} Stages
+              </ion-badge>
+            </ion-col>
+          </ion-row>
 
-        <ion-row text-center>
-          <ion-col col-12>
-            <ion-badge color="primary">
-              {{ rocket.success_rate_pct }}% Success Rate
-            </ion-badge>
-          </ion-col>
-        </ion-row>
+          <ion-row text-center>
+            <ion-col col-12>
+              <ion-badge color="primary">
+                {{ rocket.success_rate_pct }}% Success Rate
+              </ion-badge>
+            </ion-col>
+          </ion-row>
 
-      </ion-card-content>
+        </ion-card-content>
 
-      <ion-item>
-        <ion-icon name="flag" item-start large></ion-icon>
-        <h2>Country</h2>
-        <p>{{ rocket.country }}</p>
-      </ion-item>
+        <ion-item>
+          <ion-icon name="flag" item-start large></ion-icon>
+          <h2>Country</h2>
+          <p>{{ rocket.country }}</p>
+        </ion-item>
 
-      <ion-item>
-        <ion-icon name="jet" item-start large></ion-icon>
-        <h2>First Flight</h2>
-        <p>{{ rocket.first_flight }}</p>
-      </ion-item>
+        <ion-item>
+          <ion-icon name="jet" item-start large></ion-icon>
+          <h2>First Flight</h2>
+          <p>{{ rocket.first_flight }}</p>
+        </ion-item>
 
-      <ion-item>
-        <ion-icon name="logo-usd" item-start large></ion-icon>
-        <h2>Cost Per Launch</h2>
-        <p>{{ rocket.cost_per_launch }} <ion-icon name="logo-usd"></ion-icon></p>
-      </ion-item>
+        <ion-item>
+          <ion-icon name="logo-usd" item-start large></ion-icon>
+          <h2>Cost Per Launch</h2>
+          <p>{{ rocket.cost_per_launch }}
+            <ion-icon name="logo-usd"></ion-icon>
+          </p>
+        </ion-item>
+      </div>
 
     </ion-card>
 </ion-content>
