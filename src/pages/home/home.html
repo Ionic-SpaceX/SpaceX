@@ -9,14 +9,124 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <h2 ion-text color="primary" text-center>Next Launch</h2>
+  <ion-card *ngIf="nextLaunch">
+
+    <div style="height: 250px;">
+      <div  ion-text color="primary" text-center>
+        <h2>
+          {{ nextLaunch.mission_name }}
+        </h2>
+        <sub>Will be lanched in</sub>
+      </div>
+
+      <ion-row class="launchCountDown" text-center *ngIf="launchTimeCountDown === undefined">
+        <ion-col>
+          <ion-spinner name='crescent'></ion-spinner>
+        </ion-col>
+      </ion-row>
+      <div *ngIf="launchTimeCountDown" class="launchCountDown">
+        <ion-row text-center>
+          <ion-col>
+            <h1>{{ launchTimeCountDown.day }}</h1>
+            <sub ion-text color="primary">DAYS</sub>
+          </ion-col>
+          <ion-col>
+            <h1>{{ launchTimeCountDown.hour }}</h1>
+            <sub ion-text color="primary">HOURS</sub>
+          </ion-col>
+          <ion-col>
+            <h1>{{ launchTimeCountDown.minute }}</h1>
+            <sub ion-text color="primary">MINUTES</sub>
+          </ion-col>
+          <ion-col>
+            <h1>{{ launchTimeCountDown.seconds }}</h1>
+            <sub ion-text color="primary">SECONDS</sub>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+
+    <ion-card-content>
+      {{ nextLaunch.details }}
+    </ion-card-content>
+
+    <ion-item text-wrap>
+      <ion-icon color="primary" name="jet" item-start></ion-icon>
+      <h2 ion-text color="primary">Rocket</h2>
+      <p>{{ nextLaunch.rocket.rocket_type }} {{ nextLaunch.rocket.rocket_name }}</p>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <ion-icon color="primary" name="pin" item-start></ion-icon>
+      <h2 ion-text color="primary">Launch Site</h2>
+      <p>{{ nextLaunch.launch_site.site_name_long }}</p>
+    </ion-item>
+
+    <ion-item text-wrap *ngIf="sourcePageLaunch === 'PastLaunchesPage'">
+      <ion-icon color="primary" name="time" item-start></ion-icon>
+      <h2 ion-text color="primary">Launch Time</h2>
+      <p>{{ nextLaunch.launch_date_utc | date: 'MMM d, y h:mm a' }}</p>
+    </ion-item>
+
+    <ion-row>
+      <ion-col align-self-center text-center *ngIf="nextLaunch.links.video_link">
+        <button ion-button icon-left clear small>
+          <ion-icon name="logo-youtube"></ion-icon>
+          <div>
+            <a href="{{ nextLaunch.links.video_link}}">Video</a>
+          </div>
+        </button>
+      </ion-col>
+
+      <ion-col align-self-center text-center *ngIf="nextLaunch.links.article_link">
+        <button ion-button icon-left clear small>
+          <ion-icon name="book"></ion-icon>
+          <div>
+            <a href="{{ nextLaunch.links.article_link}}">Article</a>
+          </div>
+        </button>
+      </ion-col>
+
+      <ion-col align-self-center text-center *ngIf="nextLaunch.links.reddit_launch">
+        <button ion-button icon-left clear small>
+          <ion-icon name="logo-reddit"></ion-icon>
+          <div>
+            <a href="{{ nextLaunch.links.reddit_launch}}">Reddit</a>
+          </div>
+        </button>
+      </ion-col>
+
+      <ion-col align-self-center text-center *ngIf="nextLaunch.links.reddit_campaign">
+        <button ion-button icon-left clear small>
+          <ion-icon name="logo-reddit"></ion-icon>
+          <div>
+            <a href="{{ nextLaunch.links.reddit_campaign}}">Reddit</a>
+          </div>
+        </button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-card>
 </ion-content>
+
+<!-- <ion-row text-center>
+  <ion-col>
+    <h1>{{ launchTimeCountDown.day }}</h1>
+    <sub ion-text color="primary">DAYS</sub>
+  </ion-col>
+  <ion-col>
+    <h1>{{ launchTimeCountDown.hour }}</h1>
+    <sub ion-text color="primary">HOURS</sub>
+  </ion-col>
+  <ion-col>
+    <h1>{{ launchTimeCountDown.minute }}</h1>
+    <sub ion-text color="primary">MINUTES</sub>
+  </ion-col>
+  <ion-col>
+    <h1>{{ launchTimeCountDown.seconds }}</h1>
+    <sub ion-text color="primary">SECONDS</sub>
+  </ion-col>
+</ion-row> -->
