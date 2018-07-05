@@ -1,3 +1,11 @@
 page-home {
+  ion-card, ion-item {
+    background: none !important;
+  }
 
+  .launchCountDown {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }

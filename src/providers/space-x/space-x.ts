@@ -98,6 +98,12 @@ export class SpaceXProvider {
     return this.cache.loadFromDelayedObservable(cacheKey, request);
   }
 
+  getLatestLaunch(){
+    let cacheKey = `${this.apiUrl}/launches/latest`;
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromObservable(cacheKey, request);
+  }
+
   isCachabled(key):Promise<string | boolean>{
     let result = this.cache.itemExists(key);
     return result;
