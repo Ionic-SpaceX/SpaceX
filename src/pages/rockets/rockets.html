@@ -20,7 +20,9 @@
   <ion-list *ngIf="rocketList">
     <button ion-item *ngFor="let rocket of rocketList" (click)="goToRocketDetails(rocket)">
       {{ rocket.name }}
-      <ion-icon [name]="rocket.active ? 'radio-button-on' : 'radio-button-off'" [color]="rocket.active ? 'secondary' : 'danger'" item-end></ion-icon>
+      <ion-badge [color]="rocket.active ? 'secondary' : 'danger'" item-end>
+        {{ rocket.active ? 'Active' : 'Inactive' }}
+      </ion-badge>
     </button>
   </ion-list>
 </ion-content>
