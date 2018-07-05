@@ -23,9 +23,16 @@
       <div class="cardContent" text-justify>
         <ion-card-header text-center color="primary">
           {{ rocket.name }}
-          <ion-badge [color]="rocket.active ? 'secondary' : 'danger'">
-            {{ rocket.active ? 'Active' : 'Inactive' }}
-          </ion-badge>
+          <p>
+            <ion-badge [color]="rocket.active ? 'secondary' : 'danger'">
+              {{ rocket.active ? 'Active' : 'Inactive' }}
+            </ion-badge>
+          </p>
+          <p>
+            <ion-badge color="primary">
+              {{ rocket.success_rate_pct }}% Success Rate
+            </ion-badge>
+          </p>
         </ion-card-header>
 
         <ion-card-content>
@@ -43,32 +50,23 @@
               </ion-badge>
             </ion-col>
           </ion-row>
-
-          <ion-row text-center>
-            <ion-col col-12>
-              <ion-badge color="primary">
-                {{ rocket.success_rate_pct }}% Success Rate
-              </ion-badge>
-            </ion-col>
-          </ion-row>
-
         </ion-card-content>
 
         <ion-item>
-          <ion-icon name="flag" item-start large></ion-icon>
-          <h2>Country</h2>
+          <ion-icon color="primary" name="flag" item-start large></ion-icon>
+          <h2 ion-text color="primary">Country</h2>
           <p>{{ rocket.country }}</p>
         </ion-item>
 
         <ion-item>
-          <ion-icon name="jet" item-start large></ion-icon>
-          <h2>First Flight</h2>
+          <ion-icon color="primary" name="jet" item-start large></ion-icon>
+          <h2 ion-text color="primary">First Flight</h2>
           <p>{{ rocket.first_flight }}</p>
         </ion-item>
 
         <ion-item>
-          <ion-icon name="logo-usd" item-start large></ion-icon>
-          <h2>Cost Per Launch</h2>
+          <ion-icon color="primary" name="logo-usd" item-start large></ion-icon>
+          <h2 ion-text color="primary">Cost Per Launch</h2>
           <p>{{ rocket.cost_per_launch }}
             <ion-icon name="logo-usd"></ion-icon>
           </p>
