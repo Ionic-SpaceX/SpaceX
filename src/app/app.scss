@@ -15,6 +15,13 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+ion-card {
+  margin: 0 !important;
+  width: auto !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
 .space{
   margin-bottom: 33px;
 }
@@ -32,25 +39,25 @@
   transform:translate(-50%,-50%);
 }
 .header-nav{
-  background-image: url('../assets/imgs/rockets/logo.jpg');
   height: 150px;
+  background: url('../assets/imgs/rockets/logo.jpg') no-repeat top;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
-  .header-overlay{
+
+  .header-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 0;
   }
-  h3{
+
+  #menuTitle {
     color: white;
     margin-left: 10px;
     z-index: 1;
