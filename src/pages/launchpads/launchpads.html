@@ -20,8 +20,9 @@
   <ion-list *ngIf="launchpads">
     <button text-wrap ion-item *ngFor="let launchpad of launchpads" (click)="goToLaunchpadDatails(launchpad)">
       {{ launchpad.location.name }}
-      <ion-icon [name]="launchpad.status ? 'radio-button-on' : 'radio-button-off'" [color]="launchpad.status ? 'secondary' : 'danger'"
-        item-end></ion-icon>
+      <ion-badge [color]="launchpad.status ? 'secondary' : 'danger'" item-end>
+        {{ launchpad.status ? 'Active' : 'Retired' }}
+      </ion-badge>
     </button>
   </ion-list>
 </ion-content>

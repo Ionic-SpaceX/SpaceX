@@ -20,8 +20,9 @@
   <ion-list *ngIf="capsuleList">
     <button ion-item *ngFor="let capsule of capsuleList">
       {{ capsule.name }}
-      <ion-icon [name]="capsule.active ? 'radio-button-on' : 'radio-button-off'" [color]="capsule.active ? 'secondary' : 'danger'"
-        item-end></ion-icon>
+      <ion-badge [color]="capsule.active ? 'secondary' : 'danger'" item-end>
+        {{ capsule.active ? 'Active' : 'Inactive' }}
+      </ion-badge>
     </button>
   </ion-list>
 </ion-content>
