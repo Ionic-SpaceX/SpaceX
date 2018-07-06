@@ -11,6 +11,7 @@ import {SettingsPage} from "../pages/settings/settings";
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from "../pages/login/login";
 import { LaunchpadsPage } from '../pages/launchpads/launchpads';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   pages: Array<{title: string, component: any, icon: any}>;
 
-    constructor(platform: Platform,private statusBar: StatusBar, private aFauth: AngularFireAuth, private cache: CacheService) {
+    constructor(platform: Platform,private statusBar: StatusBar, private aFauth: AngularFireAuth, private cache: CacheService, private screenOrientation: ScreenOrientation) {
     this.platform = platform;
     this.initializeApp();
     this.cache.setDefaultTTL(60 * 60);
@@ -56,6 +57,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.statusBar.backgroundColorByHexString("#575fcf");
       this.statusBar.styleLightContent();
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     });
   }
 

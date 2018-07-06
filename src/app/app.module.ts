@@ -27,6 +27,7 @@ import { RegisterPageModule } from '../pages/register/register.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MaterialModule} from "./material.module";
 import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
       provide: ErrorHandler, useClass: IonicErrorHandler
     },
     SpaceXProvider,
+    ScreenOrientation,
   ]
 })
 export class AppModule {}

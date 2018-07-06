@@ -31,7 +31,9 @@ export class LaunchDetailsPage {
 
   ionViewDidEnter() {
     this.launchTime = this.navParams.data.launch_date_utc;
-    if(this.sourcePageLaunch === 'UpcomingLaunchesPage'){
+    console.log(this.sourcePageLaunch);
+    if (this.sourcePageLaunch === 'UpcomingLaunchesPage' || this.sourcePageLaunch === "HomePage") {
+      console.log('in');
       this.initRefreshCountDown();
     }
   }
@@ -90,6 +92,7 @@ export class LaunchDetailsPage {
     };
 
     this.launchTimeCountDown = result;
+    console.log(result);
   }
 }
 
