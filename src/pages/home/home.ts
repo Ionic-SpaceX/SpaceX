@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SpaceXProvider } from '../../providers/space-x/space-x';
+import { LaunchDetailsPage } from '../launches/launches';
 
 @Component({
   selector: 'page-home',
@@ -13,6 +14,9 @@ export class HomePage {
   launchTimeCountDown: any;
 
   constructor(public navCtrl: NavController, private spaceXProvider: SpaceXProvider) {
+  }
+
+  ionViewDidEnter() {
     this.getNextLaunch();
   }
 
@@ -57,5 +61,9 @@ export class HomePage {
     };
 
     this.launchTimeCountDown = result;
+  }
+
+  seeLaunchDetails() {
+    this.navCtrl.push(LaunchDetailsPage, this.nextLaunch);
   }
 }

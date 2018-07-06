@@ -15,7 +15,7 @@
   <ion-card no-padding>
 
     <img class="launchPatch" *ngIf="launch.links.mission_patch" src="{{launch.links.mission_patch}}">
-    <ion-card class="nextLaunchTimerCard" *ngIf="sourcePageLaunch === 'UpcomingLaunchesPage'">
+    <ion-card class="nextLaunchTimerCard" *ngIf="sourcePageLaunch === 'UpcomingLaunchesPage' || sourcePageLaunch === 'HomePage'">
       <ion-card-header text-center>
         <h2 ion-text color="primary">Launch Count Down</h2>
       </ion-card-header>

@@ -1,11 +1,31 @@
 page-home {
-  ion-card, ion-item {
-    background: none !important;
+  ion-content {
+    background: #9196E0 !important;
   }
 
-  .launchCountDown {
+  ion-spinner * {
+    width: 70px;
+    height: 70px;
+    stroke: #ffffff !important;
+  }
+
+  .spinner {
+    text-align: center;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  .nextLaunchCountDown {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    h1 {
+      font-size: 5rem;
+    }
+  }
+
+  .countDown {
+    margin: 20px;
   }
 }
