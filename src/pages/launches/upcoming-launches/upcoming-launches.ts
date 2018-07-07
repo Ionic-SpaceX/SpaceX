@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpaceXProvider } from '../../../providers/space-x/space-x';
 import { LaunchDetailsPage } from '../launches';
 
@@ -19,18 +19,14 @@ export class UpcomingLaunchesPage {
 
   upcomingLaunches: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider) {
     this.getUpcominglaunches();
   }
 
   getUpcominglaunches(){
-    let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-    });
-    loader.present();
     this.spaceXProvider.getUpcomingLaunches().subscribe(data => {
       this.upcomingLaunches = data;
-      loader.dismiss();
+      this.spaceXProvider.dismissLoader();
     });
   }
 
