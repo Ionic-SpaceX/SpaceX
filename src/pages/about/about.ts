@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { SpaceXProvider } from '../../providers/space-x/space-x';
 
 @Component({
@@ -10,19 +10,14 @@ export class AboutPage {
 
   spaceXInfo: any;
 
-  constructor(public navCtrl: NavController, private spaceXProvider: SpaceXProvider, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, private spaceXProvider: SpaceXProvider) {
     this.getSpaceXInfo();
   }
 
   getSpaceXInfo(){
-    let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-    });
-    loader.present().then(() => {
-      this.spaceXProvider.getCompagnyInfo().subscribe(data => {
-        this.spaceXInfo = data;
-        loader.dismiss();
-      })
+    this.spaceXProvider.getCompagnyInfo().subscribe(data => {
+      this.spaceXInfo = data;
+      this.spaceXProvider.dismissLoader();
     });
   }
 

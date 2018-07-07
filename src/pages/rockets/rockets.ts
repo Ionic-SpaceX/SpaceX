@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpaceXProvider } from '../../providers/space-x/space-x';
 
 /**
@@ -30,19 +30,14 @@ export class RocketsPage {
 
   rocketList: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider) {
     this.getAllRockets();
   }
 
   getAllRockets(){
-    let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-    });
-    loader.present().then(() => {
-      this.spaceXProvider.getAllRockets().subscribe(data => {
-        this.rocketList = data;
-        loader.dismiss();
-      })
+    this.spaceXProvider.getAllRockets().subscribe(data => {
+      this.rocketList = data;
+      this.spaceXProvider.dismissLoader();
     });
   }
 

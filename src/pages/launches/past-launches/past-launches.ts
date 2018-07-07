@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { SpaceXProvider } from '../../../providers/space-x/space-x';
 import { LaunchesFiltersModalPage } from '../launches-filters-modal/launches-filters-modal';
 import { LaunchDetailsPage } from '../launches';
@@ -23,18 +23,14 @@ export class PastLaunchesPage {
     order: 'desc',
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider, private modalCtrl: ModalController, private loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider, private modalCtrl: ModalController) {
       this.getPastLaunches(this.filters);
   }
 
   getPastLaunches(filters){
-    let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-    });
-    loader.present();
     this.spaceXProvider.getPastLaunches(filters).subscribe(data => {
       this.pastLaunches = data;
-      loader.dismiss();
+      this.spaceXProvider.dismissLoader();
     })
   }
 

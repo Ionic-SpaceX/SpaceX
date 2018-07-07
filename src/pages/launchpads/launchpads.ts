@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpaceXProvider } from '../../providers/space-x/space-x';
 import leaflet from "leaflet";
 
@@ -51,20 +51,14 @@ export class LaunchpadsPage {
 
   launchpads: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private loadingCtrl: LoadingController, private spaceXprovider: SpaceXProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXprovider: SpaceXProvider) {
     this.getLaunchpads();
   }
 
   getLaunchpads(){
-    let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-    });
-    loader.present().then(() => {
-      this.spaceXprovider.getlaunchpads().subscribe(data => {
-        console.log(data);
-        this.launchpads = data;
-        loader.dismiss();
-      });
+    this.spaceXprovider.getlaunchpads().subscribe(data => {
+      this.launchpads = data;
+      this.spaceXprovider.dismissLoader();
     });
   }
 
