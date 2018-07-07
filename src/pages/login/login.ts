@@ -36,7 +36,6 @@ export class LoginPage {
   async loginWithEmail(user : User) {
     try {
       const result = await this.aFauth.auth.signInWithEmailAndPassword(user.email, user.password);
-      console.log(result);
       if(result) {
         this.navCtrl.setRoot(HomePage);
       }

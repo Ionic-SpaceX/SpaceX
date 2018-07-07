@@ -43,7 +43,6 @@ export class RegisterPage {
   async registerWithEmail(user : User) {
     try {
       const result = await this.aFauth.auth.createUserWithEmailAndPassword(user.email, user.password);
-      console.log(result);
       if(result) {
         this.navCtrl.setRoot(HomePage);
       }

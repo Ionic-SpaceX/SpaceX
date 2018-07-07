@@ -22,11 +22,6 @@ export class SettingsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private cacheService:CacheService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
-  }
-
-
   public goToCacheDetails(){
     this.navCtrl.push(CacheDetailsPage);
   }
