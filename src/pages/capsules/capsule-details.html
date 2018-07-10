@@ -1,0 +1,77 @@
+<ion-header>
+
+  <ion-navbar color="primary" *ngIf="capsule">
+    <ion-title>{{ capsule.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+
+    <img *ngIf="capsule.name === 'Dragon 1'" src="assets/imgs/capsules/dragon1.jpg">
+    <img *ngIf="capsule.name === 'Dragon 2'" src="assets/imgs/capsules/dragon2.jpg">
+    <img *ngIf="capsule.name === 'Crew Dragon'" src="assets/imgs/capsules/crewdragon.jpg">
+
+    <div class="cardContent" text-justify>
+      <ion-card-header text-center color="primary">
+        {{ capsule.name }}
+        <p>
+          <ion-badge [color]="capsule.active ? 'secondary' : 'danger'">
+            {{ capsule.active ? 'Active' : 'Inactive' }}
+          </ion-badge>
+        </p>
+      </ion-card-header>
+
+      <ion-item>
+        <ion-icon color="primary" name="people" item-start large></ion-icon>
+        <h2 ion-text color="primary">Crew Capacity</h2>
+        <p>{{ capsule.crew_capacity }}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="primary" name="planet" item-start large></ion-icon>
+        <h2 ion-text color="primary">Orbit Duration</h2>
+        <p>{{ capsule.orbit_duration_yr }} Years</p>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-icon color="primary" name="jet" item-start large></ion-icon>
+        <h2 ion-text color="primary">Thrusters</h2>
+        <p><strong>Type: </strong>{{ capsule.thrusters[0].amount }}x {{ capsule.thrusters[0].type }}</p>
+        <p><strong>Pods: </strong>{{ capsule.thrusters[0].pods }}</p>
+        <p text-capitalize><strong>Fuel: </strong>{{ capsule.thrusters[0].fuel_1 }} & {{ capsule.thrusters[0].fuel_2 }}</p>
+        <p><strong>Thrust: </strong>{{ capsule.thrusters[0].thrust.kN }}kN / {{ capsule.thrusters[0].thrust.lbf }}lbf</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="primary" name="flame" item-start large></ion-icon>
+        <h2 ion-text color="primary">Heatshield</h2>
+        <p><strong>Material: </strong>{{ capsule.heat_shield.material }}</p>
+        <p><strong>Max Temperature: </strong>{{ capsule.heat_shield.temp_degrees }}°F</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="primary" name="information-circle" item-start large></ion-icon>
+        <h2 ion-text color="primary">Specifications</h2>
+        <p><strong>Height: </strong>{{ capsule.height_w_trunk.meters }}m / {{ capsule.height_w_trunk.feet }}feet</p>
+        <p><strong>Diameter: </strong>{{ capsule.diameter.meters }}m / {{ capsule.diameter.feet }}feet</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="primary" name="clipboard" item-start large></ion-icon>
+        <h2 ion-text color="primary">Payload</h2>
+        <p><strong>Launch Mass: </strong>{{ capsule.launch_payload_mass.kg }}kg / {{ capsule.launch_payload_mass.lb }}lb</p>
+
+        <p><strong>Launch Volume: </strong>{{ capsule.launch_payload_vol.cubic_meters }}m<sup>3</sup> / {{ capsule.launch_payload_vol.cubic_feet }}feet<sup>3</sup></p>
+
+        <p><strong>Return Mass: </strong>{{ capsule.return_payload_mass.kg }}kg / {{ capsule.return_payload_mass.lb }}lb</p>
+
+        <p><strong>Return Volume: </strong>{{ capsule.return_payload_vol.cubic_meters }}m<sup>3</sup> / {{ capsule.return_payload_vol.cubic_feet }}feet<sup>3</sup></p>
+      </ion-item>
+
+    </div>
+
+  </ion-card>
+</ion-content>

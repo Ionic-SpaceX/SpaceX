@@ -19,13 +19,13 @@ import { LaunchesPageModule } from '../pages/launches/launches.module';
 import { UpcomingLaunchesPageModule } from '../pages/launches/upcoming-launches/upcoming-launches.module';
 import { PastLaunchesPageModule } from '../pages/launches/past-launches/past-launches.module';
 import { LaunchesFiltersModalPageModule } from '../pages/launches/launches-filters-modal/launches-filters-modal.module';
-import {CacheModule} from "ionic-cache";
-import {SettingsPageModule} from "../pages/settings/settings.module";
+import { CacheModule } from "ionic-cache";
+import { SettingsPageModule } from "../pages/settings/settings.module";
 
 import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MaterialModule} from "./material.module";
+import { MaterialModule } from "./material.module";
 import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 

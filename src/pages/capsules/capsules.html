@@ -18,7 +18,7 @@
 
 <ion-content>
   <ion-list *ngIf="capsuleList">
-    <button ion-item *ngFor="let capsule of capsuleList">
+    <button ion-item *ngFor="let capsule of capsuleList" (click)="goToCapsuleDetails(capsule)">
       {{ capsule.name }}
       <ion-badge [color]="capsule.active ? 'secondary' : 'danger'" item-end>
         {{ capsule.active ? 'Active' : 'Inactive' }}

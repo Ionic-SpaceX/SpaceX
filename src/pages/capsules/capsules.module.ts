@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { CapsulesPage } from './capsules';
+import { CapsulesPage, CapsuleDetailsPage } from './capsules';
 
 @NgModule({
   declarations: [
     CapsulesPage,
+    CapsuleDetailsPage,
   ],
   imports: [
     IonicPageModule.forChild(CapsulesPage),
   ],
   entryComponents: [
-    CapsulesPage
+    CapsulesPage,
+    CapsuleDetailsPage,
   ]
 })
 export class CapsulesPageModule {}
