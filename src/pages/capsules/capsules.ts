@@ -9,6 +9,17 @@ import { SpaceXProvider } from '../../providers/space-x/space-x';
  * Ionic pages and navigation.
  */
 
+@Component({
+  templateUrl: 'capsule-details.html',
+})
+export class CapsuleDetailsPage {
+  capsule;
+
+  constructor(params: NavParams) {
+    this.capsule = params.data;
+  }
+}
+
 @IonicPage()
 @Component({
   selector: 'page-capsules',
@@ -27,6 +38,10 @@ export class CapsulesPage {
       this.capsuleList = data;
       this.spaceXProvider.dismissLoader();
     });
+  }
+
+  goToCapsuleDetails(capsule){
+    this.navCtrl.push(CapsuleDetailsPage, capsule);
   }
 
 }
