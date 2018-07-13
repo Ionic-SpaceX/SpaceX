@@ -28,6 +28,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material.module";
 import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { HistoryPageModule } from "../pages/history/history.module";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     PastLaunchesPageModule,
     LaunchesFiltersModalPageModule,
     SettingsPageModule,
+    HistoryPageModule,
     CacheModule.forRoot({ keyPrefix: 'my-spacex-cache' }),
     LoginPageModule,
     RegisterPageModule,

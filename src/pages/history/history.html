@@ -1,0 +1,69 @@
+<!--
+  Generated template for the HistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Space X History</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-fab top right edge>
+    <button color="danger" ion-fab mini (click)="changeDataOrder()">
+      <ion-icon [name]="filters.order === 'desc' ? 'arrow-round-down' : 'arrow-round-up'"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <div *ngIf="histories">
+
+    <ion-card *ngFor="let history of histories">
+      <ion-card-header text-center text-wrap color="primary">
+        {{ history.title }}
+        <p>{{ history.event_date_utc | date: 'MMM d, y' }}</p>
+        <p class="flight_number" *ngIf="history.flight_number">Flight number: {{ history.flight_number}}</p>
+      </ion-card-header>
+      <ion-card-content text-justify>
+        {{ history.details }}
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col align-self-center text-center *ngIf="history.links.wikipedia">
+          <button ion-button icon-left clear small>
+            <ion-icon name="albums"></ion-icon>
+            <div>
+              <a href="{{ history.links.wikipedia}}">Wikipedia</a>
+            </div>
+          </button>
+        </ion-col>
+
+        <ion-col align-self-center text-center *ngIf="history.links.article">
+          <button ion-button icon-left clear small>
+            <ion-icon name="book"></ion-icon>
+            <div>
+              <a href="{{ history.links.article}}">Article</a>
+            </div>
+          </button>
+        </ion-col>
+
+        <ion-col align-self-center text-center *ngIf="history.links.reddit">
+          <button ion-button icon-left clear small>
+            <ion-icon name="logo-reddit"></ion-icon>
+            <div>
+              <a href="{{ history.links.reddit}}">Reddit</a>
+            </div>
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+  </div>
+</ion-content>

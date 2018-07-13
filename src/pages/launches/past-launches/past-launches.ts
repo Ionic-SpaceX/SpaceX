@@ -39,7 +39,7 @@ export class PastLaunchesPage {
   }
 
   openModal(){
-    const filtersModal = this.modalCtrl.create(LaunchesFiltersModalPage, { currentFilters: this.filters })
+    const filtersModal = this.modalCtrl.create(LaunchesFiltersModalPage, { currentFilters: this.filters });
     filtersModal.present();
 
     filtersModal.onDidDismiss(newFilters => {
@@ -48,7 +48,7 @@ export class PastLaunchesPage {
           if (newFilters[filter] === ''){
             delete newFilters[filter];
           }
-        })
+        });
         this.filters = newFilters;
         this.getPastLaunches(this.filters);
       }

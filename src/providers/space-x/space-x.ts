@@ -21,7 +21,7 @@ export class SpaceXProvider {
   showLoader() {
     this.loader = this.loadingCtrl.create({
       content: "Please wait...",
-    })
+    });
 
     this.loader.present();
   }
@@ -39,11 +39,36 @@ export class SpaceXProvider {
     this.isCached(cacheKey).then(result => {
       if(!result) {
         this.showLoader();
-      };
+      }
     });
 
     let request = this.http.get(cacheKey);
     return this.cache.loadFromObservable(cacheKey, request);
+  }
+
+  getCompanyHistory(filters) {
+    let receivedFilters = '';
+    const filtersKeys = filters != null ? Object.keys(filters) : null;
+    if (filtersKeys != null && filtersKeys.length > 0) {
+      filtersKeys.forEach((filter, index) => {
+        if (index === 0) {
+          receivedFilters += `?${filter}=${encodeURIComponent(filters[filter])}`;
+        }
+        else {
+          receivedFilters += `&${filter}=${encodeURIComponent(filters[filter])}`;
+        }
+      });
+    }
+    let cacheKey = `${this.apiUrl}/info/history/${receivedFilters}`;
+
+    this.isCached(cacheKey).then(result => {
+      if(!result) {
+        this.showLoader();
+      }
+    });
+
+    let request = this.http.get(cacheKey);
+    return this.cache.loadFromDelayedObservable(cacheKey, request);
   }
 
   getAllRockets(){
@@ -52,7 +77,7 @@ export class SpaceXProvider {
     this.isCached(cacheKey).then(result => {
       if (!result) {
         this.showLoader();
-      };
+      }
     });
 
     let request = this.http.get(cacheKey);
@@ -65,7 +90,7 @@ export class SpaceXProvider {
     this.isCached(cacheKey).then(result => {
       if (!result) {
         this.showLoader();
-      };
+      }
     });
 
     let request = this.http.get(cacheKey);
@@ -78,7 +103,7 @@ export class SpaceXProvider {
     this.isCached(cacheKey).then(result => {
       if (!result) {
         this.showLoader();
-      };
+      }
     });
 
     let request = this.http.get(cacheKey);
@@ -124,7 +149,7 @@ export class SpaceXProvider {
     this.isCached(cacheKey).then(result => {
       if (!result) {
         this.showLoader();
-      };
+      }
     });
 
     let request = this.http.get(cacheKey);
@@ -138,7 +163,7 @@ export class SpaceXProvider {
     this.isCached(cacheKey).then(result => {
       if (!result) {
         this.showLoader();
-      };
+      }
     });
 
     let request = this.http.get(cacheKey);
@@ -158,7 +183,7 @@ export class SpaceXProvider {
     this.isCached(cacheKey).then(result => {
       if (!result) {
         this.showLoader();
-      };
+      }
     });
 
     let request = this.http.get(cacheKey);
@@ -171,7 +196,7 @@ export class SpaceXProvider {
     this.isCached(cacheKey).then(result => {
       if (!result) {
         this.showLoader();
-      };
+      }
     });
 
     let request = this.http.get(cacheKey);
