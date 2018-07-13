@@ -12,6 +12,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from "../pages/login/login";
 import { LaunchpadsPage } from '../pages/launchpads/launchpads';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import {HistoryPage} from "../pages/history/history";
 
 
 @Component({
@@ -45,6 +46,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'About', component: AboutPage, icon: 'information-circle' },
+      { title: 'History', component: HistoryPage, icon: 'bookmarks' },
       { title: 'Rockets', component: RocketsPage, icon: 'jet' },
       { title: 'Capsule', component: CapsulesPage, icon: 'moon' },
       { title: 'Missions', component: LaunchesPage, icon: 'planet' },
