@@ -29,6 +29,7 @@ import { MaterialModule } from "./material.module";
 import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { HistoryPageModule } from "../pages/history/history.module";
+import { LocalNotifications } from '../../node_modules/@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { HistoryPageModule } from "../pages/history/history.module";
     },
     SpaceXProvider,
     ScreenOrientation,
+    LocalNotifications,
   ]
 })
 export class AppModule {}
