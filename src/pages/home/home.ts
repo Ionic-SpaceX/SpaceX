@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { SpaceXProvider } from '../../providers/space-x/space-x';
 import { LaunchDetailsPage } from '../launches/launches';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 
 @Component({
   selector: 'page-home',
@@ -12,12 +14,33 @@ export class HomePage {
   launchTime: any;
   interval: any;
   launchTimeCountDown: any;
+  isUser = false;
 
-  constructor(public navCtrl: NavController, private spaceXProvider: SpaceXProvider) {
+  constructor(public navCtrl: NavController, private spaceXProvider: SpaceXProvider, private localNotifications: LocalNotifications, private aFauth: AngularFireAuth, private toastCtrl: ToastController) {
   }
 
   ionViewDidEnter() {
     this.getNextLaunch();
+    this.aFauth.authState.subscribe(user => {
+      if (user) {
+        if(!this.isUser) {
+          this.isUser = true;
+        }
+      }
+      else {
+        let toast = this.toastCtrl.create({
+          message: 'Please login to be notified for the next launch',
+          position: 'botton',
+          showCloseButton: true,
+        });
+
+        toast.present();
+
+        if(this.isUser) {
+          this.isUser = false;
+        }
+      }
+    })
   }
 
   getNextLaunch() {
@@ -25,6 +48,7 @@ export class HomePage {
       this.nextLaunch = data;
       this.launchTime = data.launch_date_utc;
       this.initRefreshCountDown();
+      this.scheduleNotifications();
     })
   }
 
@@ -65,5 +89,36 @@ export class HomePage {
 
   seeLaunchDetails() {
     this.navCtrl.push(LaunchDetailsPage, this.nextLaunch);
+  }
+
+  scheduleNotifications() {
+    this.localNotifications.isScheduled(1).then(data => {
+      if(!data){
+        console.log('je suis dans la boucle');
+        this.localNotifications.schedule({
+          id: 0,
+          title: 'You will be notified',
+          text: 'A notification has been scheduled to infrom about the next launch',
+          trigger: { at: new Date(new Date().getTime() + 10 * 1000 ) },
+        });
+
+        console.log(new Date(new Date(this.launchTime).getTime() - 3600000));
+        this.localNotifications.schedule({
+          id: 1,
+          title: "Next launch in 1 hour",
+          text: 'The next Space X launch is in 1 hour from now !',
+          trigger: { at: new Date(new Date(this.launchTime).getTime() - 3600000) },
+        });
+
+        console.log(new Date(new Date(this.launchTime).getTime()));
+        this.localNotifications.schedule(
+          {
+            id: 2,
+            title: "Space X launch RIGHT NOW !!!",
+            text: 'That it, Space X is launching a rocket just now',
+            trigger: { at: new Date(new Date(this.launchTime).getTime()) },
+        });
+      }
+    });
   }
 }
