@@ -23,6 +23,7 @@ export class HomePage {
     this.getNextLaunch();
     this.aFauth.authState.subscribe(user => {
       if (user) {
+        this.scheduleNotifications();
         if(!this.isUser) {
           this.isUser = true;
         }
@@ -31,7 +32,7 @@ export class HomePage {
         let toast = this.toastCtrl.create({
           message: 'Please login to be notified for the next launch',
           position: 'botton',
-          showCloseButton: true,
+          duration: 5000,
         });
 
         toast.present();
@@ -48,7 +49,6 @@ export class HomePage {
       this.nextLaunch = data;
       this.launchTime = data.launch_date_utc;
       this.initRefreshCountDown();
-      this.scheduleNotifications();
     })
   }
 
@@ -102,7 +102,6 @@ export class HomePage {
           trigger: { at: new Date(new Date().getTime() + 10 * 1000 ) },
         });
 
-        console.log(new Date(new Date(this.launchTime).getTime() - 3600000));
         this.localNotifications.schedule({
           id: 1,
           title: "Next launch in 1 hour",
@@ -110,7 +109,6 @@ export class HomePage {
           trigger: { at: new Date(new Date(this.launchTime).getTime() - 3600000) },
         });
 
-        console.log(new Date(new Date(this.launchTime).getTime()));
         this.localNotifications.schedule(
           {
             id: 2,
