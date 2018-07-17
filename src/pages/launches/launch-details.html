@@ -17,7 +17,7 @@
     <img class="launchPatch" *ngIf="launch.links.mission_patch" src="{{launch.links.mission_patch}}">
     <ion-card class="nextLaunchTimerCard" *ngIf="sourcePageLaunch === 'UpcomingLaunchesPage' || sourcePageLaunch === 'HomePage'">
       <ion-card-header text-center>
-        <h2 ion-text color="primary">Launch Count Down</h2>
+        <h2 ion-text color="primary" class="launch_name">{{ launch.mission_name }}</h2>
       </ion-card-header>
 
       <ion-card-content>
@@ -51,7 +51,6 @@
 
     <div class="cardContent" text-justify>
       <ion-card-header text-center color="primary">
-        <h2 ion-text color="primary" class="launch_name">{{ launch.mission_name }}</h2>
         <ion-badge *ngIf="launch.launch_success !== null" [color]="launch.launch_success ? 'secondary' : 'danger'">
           Launch {{ launch.launch_success ? 'succeed' : 'failed' }}
         </ion-badge>
