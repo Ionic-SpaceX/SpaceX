@@ -20,6 +20,7 @@
   <ion-list *ngIf="launchpads">
     <button text-wrap ion-item *ngFor="let launchpad of launchpads" (click)="goToLaunchpadDatails(launchpad)">
       {{ launchpad.location.name }}
+      <p>{{ launchpad.full_name }}</p>
       <ion-badge [color]="launchpad.status ? 'secondary' : 'danger'" item-end>
         {{ launchpad.status ? 'Active' : 'Retired' }}
       </ion-badge>
