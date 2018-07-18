@@ -66,7 +66,7 @@ deploy:
     all_branches: true
 - provider: pages
   skip-cleanup: true
-  api_key:
+  github_token:
     secure: su8f8rR0NU8ueenSFlxfCJUfoAThVpUiQljZOWK/PUbo3e+pnqh6bMoZwp0azxx+8vM5MyYzstJ/qOg+aUz78MxUmnoBcEbAlCwNdy/tCMrI69RlkJgJ3ErkJDdgp7rmz5Qr0gGvL6YwbQMvLO07stt0JnfS9SZ0uKDPcFKG0Vh8ZoOnBDygSl1o3dWRaT6wuYENMO7pVG+VTw1mqjZsrvC+V9XXX56jWHPfTj3bZI6cJHjI6ZAScISUyw8Gu0WdU7ez/jOamvhJSYU6DOCBuCp7UgBKUJbokBBSDZnZrIW1jGewR6mjjH/2fS3OyEDULIvdI7e+/+7OU5ZM6wMFNybFBZR2UPaEC3iGVb3V6X+321GzriqBTlobX/ZZonerbzmjK6S6jO10uMG0jWOjSA5PDZhgJC3IO+GhphTh2fok8geG9kl6waOGpG6YuRIcywlsUwPMnsf9usGnUovCUvRUXNhM8VUAMiam6SlP2HHQ7SJnqUDWmuHjaAzlwcK/kDur0JqAcP9omL/aojsQIyx4cNJIgWTODafx/xWtSt/hF9A56EiAW6Uszvsexd7eQaTNWHn7s0OaWqyUS1PzvRHVDjlAA0arqBLgE45IF9mXA6YwEypv0XZnNt3V6Ck7dbaF+5RlLquDgc34RQFMt5rHnC72UmSNj8PNZ9ay7kM=
   keep-history: true
   on:
