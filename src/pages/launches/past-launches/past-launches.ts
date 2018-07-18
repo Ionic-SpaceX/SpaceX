@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { SpaceXProvider } from '../../../providers/space-x/space-x';
 import { LaunchesFiltersModalPage } from '../launches-filters-modal/launches-filters-modal';
 import { LaunchDetailsPage } from '../launches';
+import { StatsPage } from '../../stats/stats';
 
 /**
  * Generated class for the PastLaunchesPage page.
@@ -25,6 +26,11 @@ export class PastLaunchesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private spaceXProvider: SpaceXProvider, private modalCtrl: ModalController) {
       this.getPastLaunches(this.filters);
+  }
+
+  seeStats(){
+    console.log('stats past launches');
+    this.navCtrl.push(StatsPage);
   }
 
   getPastLaunches(filters){

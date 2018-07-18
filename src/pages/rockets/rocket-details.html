@@ -65,6 +65,15 @@
         </ion-item>
 
         <ion-item>
+          <ion-icon color="primary" name="clipboard" item-start large></ion-icon>
+          <h2 ion-text color="primary">Payload</h2>
+          <p>
+            <strong>Mass: </strong>{{ rocket.mass.kg }} kg / {{ rocket.mass.lb }} lb</p>
+          <p>
+            <strong>Height: </strong>{{ rocket.height.meters }} m / {{ rocket.mass.feet }} feet</p>
+        </ion-item>
+
+        <ion-item>
           <ion-icon color="primary" name="logo-usd" item-start large></ion-icon>
           <h2 ion-text color="primary">Cost Per Launch</h2>
           <p>{{ rocket.cost_per_launch }}

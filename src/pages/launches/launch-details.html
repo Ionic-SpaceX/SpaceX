@@ -62,6 +62,14 @@
         </p>
       </ion-card-content>
 
+      <ion-item text-wrap text-center>
+        <ion-badge [color]="launch.reuse.capsule ? 'secondary' : 'danger'">Capsule</ion-badge>
+        <ion-badge [color]="launch.reuse.core ? 'secondary' : 'danger'">Core</ion-badge>
+        <ion-badge [color]="launch.reuse.fairings ? 'secondary' : 'danger'">Fairings</ion-badge>
+        <ion-badge [color]="launch.reuse.side_core1 ? 'secondary' : 'danger'">Side Core 1</ion-badge>
+        <ion-badge [color]="launch.reuse.side_core2 ? 'secondary' : 'danger'">Side Core 2</ion-badge>
+      </ion-item>
+
       <ion-item text-wrap>
         <ion-icon color="primary" name="jet" item-start></ion-icon>
         <h2 ion-text color="primary">Rocket</h2>

@@ -21,7 +21,7 @@ import { PastLaunchesPageModule } from '../pages/launches/past-launches/past-lau
 import { LaunchesFiltersModalPageModule } from '../pages/launches/launches-filters-modal/launches-filters-modal.module';
 import { CacheModule } from "ionic-cache";
 import { SettingsPageModule } from "../pages/settings/settings.module";
-
+import { StatsPageModule } from "../pages/stats/stats.module";
 import { LoginPageModule } from '../pages/login/login.module';
 import { RegisterPageModule } from '../pages/register/register.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -55,6 +55,7 @@ import { LocalNotifications } from '../../node_modules/@ionic-native/local-notif
     LoginPageModule,
     RegisterPageModule,
     LaunchpadsPageModule,
+    StatsPageModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'bottom',
     }),

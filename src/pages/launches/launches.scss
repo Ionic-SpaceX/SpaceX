@@ -1,17 +1,17 @@
 page-launches {
-  ion-list {
-    .item-block {
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-      left: 50%;
-      position: relative;
-      max-width: 95%;
-      margin: 10px 0 3px 0;
-      transform: translateX(-50%);
-    }
-  }
+  // ion-list {
+  //   .item-block {
+  //     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  //     left: 50%;
+  //     position: relative;
+  //     max-width: 95%;
+  //     margin: 10px 0 3px 0;
+  //     transform: translateX(-50%);
+  //   }
+  // }
 
   .list-ios .item-block .item-inner, .list-ios .item-block .item-inner, .list-ios > .item-block:first-child {
-    border: none;
+    // border: none;
   }
 
   .launch_name

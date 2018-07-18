@@ -11,6 +11,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Missions</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="white" (click)="seeStats()">
+        <ion-icon name="stats"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
   <ion-toolbar color="light-primary">
     <ion-row text-center *ngIf="pastLaunches === undefined">
@@ -33,7 +38,7 @@
   </ion-fab>
 
   <ion-list *ngIf="pastLaunches">
-    <ion-item text-wrap *ngFor="let launch of pastLaunches" (click)="goToLaunchDetails(launch)">
+    <ion-item mat-ripple text-wrap *ngFor="let launch of pastLaunches" (click)="goToLaunchDetails(launch)">
       <ion-thumbnail item-start>
         <img src="{{launch.links.mission_patch_small}}">
       </ion-thumbnail>

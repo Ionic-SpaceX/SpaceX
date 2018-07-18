@@ -94,7 +94,6 @@ export class HomePage {
   scheduleNotifications() {
     this.localNotifications.isScheduled(1).then(data => {
       if(!data){
-        console.log('je suis dans la boucle');
         this.localNotifications.schedule({
           id: 0,
           title: 'You will be notified',

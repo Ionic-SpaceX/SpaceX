@@ -1,0 +1,62 @@
+<!--
+  Generated template for the StatsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>stats</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      Rockets Use
+    </ion-list-header>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/rockets/falcon1.jpeg">
+      </ion-avatar>
+      <h2>Falcon 1</h2>
+      <p><strong>Number of launches: </strong>{{ rockets.falcon1 }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/rockets/falcon9.jpg">
+      </ion-avatar>
+      <h2>Falcon 9</h2>
+      <p><strong>Number of launches: </strong>{{ rockets.falcon9 }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/rockets/falcon_heavy.jpg">
+      </ion-avatar>
+      <h2>Big Falcon</h2>
+      <p><strong>Number of launches: </strong>{{ rockets.bigFalcon }}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Succeed & Failed launches
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon name="checkmark-circle" color="secondary" item-start></ion-icon>
+      <h2>Success</h2>
+      <p>{{ successLaunches }}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="close-circle" color="danger" item-start></ion-icon>
+      <h2>Failed</h2>
+      <p>{{ failLaunches }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
