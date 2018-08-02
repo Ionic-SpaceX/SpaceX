@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { SpaceXProvider } from '../../providers/space-x/space-x';
 import { LaunchDetailsPage } from '../launches/launches';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 
 @Component({
   selector: 'page-home',
@@ -14,34 +13,13 @@ export class HomePage {
   launchTime: any;
   interval: any;
   launchTimeCountDown: any;
-  isUser = false;
 
-  constructor(public navCtrl: NavController, private spaceXProvider: SpaceXProvider, private localNotifications: LocalNotifications, private aFauth: AngularFireAuth, private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, private spaceXProvider: SpaceXProvider, private localNotifications: LocalNotifications) {
   }
 
   ionViewDidEnter() {
     this.getNextLaunch();
-    this.aFauth.authState.subscribe(user => {
-      if (user) {
-        this.scheduleNotifications();
-        if(!this.isUser) {
-          this.isUser = true;
-        }
-      }
-      else {
-        let toast = this.toastCtrl.create({
-          message: 'Please login to be notified for the next launch',
-          position: 'botton',
-          duration: 5000,
-        });
-
-        toast.present();
-
-        if(this.isUser) {
-          this.isUser = false;
-        }
-      }
-    })
+    this.scheduleNotifications();
   }
 
   getNextLaunch() {

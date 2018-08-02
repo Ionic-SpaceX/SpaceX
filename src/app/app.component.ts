@@ -6,13 +6,11 @@ import { AboutPage } from '../pages/about/about';
 import { RocketsPage } from '../pages/rockets/rockets';
 import { CapsulesPage } from '../pages/capsules/capsules';
 import { LaunchesPage } from '../pages/launches/launches';
-import {CacheService} from "ionic-cache";
-import {SettingsPage} from "../pages/settings/settings";
-import { AngularFireAuth } from 'angularfire2/auth';
+import { CacheService } from "ionic-cache";
+import { SettingsPage } from "../pages/settings/settings";
 import { LaunchpadsPage } from '../pages/launchpads/launchpads';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import {HistoryPage} from "../pages/history/history";
-import { LoginPage } from '../pages/login/login';
+import { HistoryPage } from "../pages/history/history";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,13 +24,12 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   pages: Array<{title: string, component: any, icon: any}>;
 
-  constructor(platform: Platform, private statusBar: StatusBar, private aFauth: AngularFireAuth, private cache: CacheService, private screenOrientation: ScreenOrientation) {
+  constructor(platform: Platform, private statusBar: StatusBar, private cache: CacheService, private screenOrientation: ScreenOrientation) {
     this.platform = platform;
     this.initializeApp();
     this.cache.setDefaultTTL(60 * 60);
 
     this.activePage = HomePage;
-    this.isUserConnected();
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'About', component: AboutPage, icon: 'information-circle' },
@@ -61,27 +58,4 @@ export class MyApp {
   isActivePage(page){
     return this.activePage == page;
   }
-
-  logout(){
-    this.aFauth.auth.signOut();
-  }
-
-  login(){
-    console.log('login');
-    this.nav.push(LoginPage);
-  }
-
-  isUserConnected(){
-    this.aFauth.authState.subscribe(user => {
-      if(user){
-        this.isUser = true;
-      }
-      else {
-        this.isUser = false;
-      }
-    })
-  }
-
-
-
 }

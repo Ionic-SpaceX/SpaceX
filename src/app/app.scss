@@ -14,6 +14,9 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@import "../theme/icons";
+
 a {
   text-decoration: none;
 }
@@ -33,14 +36,6 @@ ion-card {
   margin: 12px;
 }
 
-.login-form{
-  text-align: center;
-  width: 80%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform:translate(-50%,-50%);
-}
 .header-nav{
   height: 150px;
   background: url('../assets/imgs/rockets/logo.jpg') no-repeat top;

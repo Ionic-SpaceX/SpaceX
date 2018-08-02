@@ -6,9 +6,6 @@ import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { FIREBASE_CONFIG } from './app.firebase.config';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,9 +19,7 @@ import { LaunchesFiltersModalPageModule } from '../pages/launches/launches-filte
 import { CacheModule } from "ionic-cache";
 import { SettingsPageModule } from "../pages/settings/settings.module";
 import { StatsPageModule } from "../pages/stats/stats.module";
-import { LoginPageModule } from '../pages/login/login.module';
-import { RegisterPageModule } from '../pages/register/register.module';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./material.module";
 import { LaunchpadsPageModule } from '../pages/launchpads/launchpads.module';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
@@ -52,15 +47,11 @@ import { LocalNotifications } from '../../node_modules/@ionic-native/local-notif
     SettingsPageModule,
     HistoryPageModule,
     CacheModule.forRoot({ keyPrefix: 'my-spacex-cache' }),
-    LoginPageModule,
-    RegisterPageModule,
     LaunchpadsPageModule,
     StatsPageModule,
     IonicModule.forRoot(MyApp, {
       tabsPlacement: 'bottom',
     }),
-    AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule,
   ],
 
   bootstrap: [IonicApp],
