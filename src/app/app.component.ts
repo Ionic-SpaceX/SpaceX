@@ -37,7 +37,7 @@ export class MyApp {
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'About', component: AboutPage, icon: 'information-circle' },
       { title: 'History', component: HistoryPage, icon: 'bookmarks' },
-      { title: 'Rockets', component: RocketsPage, icon: 'jet' },
+      { title: 'Rockets', component: RocketsPage, icon: 'ai-rocket' },
       { title: 'Capsule', component: CapsulesPage, icon: 'moon' },
       { title: 'Missions', component: LaunchesPage, icon: 'planet' },
       { title: 'Launchpads', component: LaunchpadsPage, icon: 'pin'},
