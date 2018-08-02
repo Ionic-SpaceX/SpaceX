@@ -26,7 +26,6 @@ export class UpcomingLaunchesPage {
   getUpcominglaunches(){
     this.spaceXProvider.getUpcomingLaunches().subscribe(data => {
       this.upcomingLaunches = data;
-      this.spaceXProvider.dismissLoader();
     });
   }
 

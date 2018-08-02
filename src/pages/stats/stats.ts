@@ -59,7 +59,6 @@ export class StatsPage {
             this.failLaunches++;
         }
       });
-      this.spaceXProvider.dismissLoader();
     })
   }
 

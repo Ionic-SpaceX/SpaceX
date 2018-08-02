@@ -58,7 +58,6 @@ export class LaunchpadsPage {
   getLaunchpads(){
     this.spaceXprovider.getlaunchpads().subscribe(data => {
       this.launchpads = data;
-      this.spaceXprovider.dismissLoader();
     });
   }
 

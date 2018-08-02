@@ -36,7 +36,6 @@ export class CapsulesPage {
   getAllCapsules(){
     this.spaceXProvider.getAllCapsules().subscribe(data => {
       this.capsuleList = data;
-      this.spaceXProvider.dismissLoader();
     });
   }
 

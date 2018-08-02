@@ -28,7 +28,6 @@ export class HistoryPage {
   getCompanyHistory(filters) {
     this.spaceXProvider.getCompanyHistory(filters).subscribe(data => {
       this.histories = data;
-      this.spaceXProvider.dismissLoader();
     })
   }
 

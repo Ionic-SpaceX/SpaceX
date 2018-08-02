@@ -37,7 +37,6 @@ export class RocketsPage {
   getAllRockets(){
     this.spaceXProvider.getAllRockets().subscribe(data => {
       this.rocketList = data;
-      this.spaceXProvider.dismissLoader();
     });
   }
 

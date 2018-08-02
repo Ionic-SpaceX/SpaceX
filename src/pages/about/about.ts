@@ -17,8 +17,6 @@ export class AboutPage {
   getSpaceXInfo(){
     this.spaceXProvider.getCompagnyInfo().subscribe(data => {
       this.spaceXInfo = data;
-      this.spaceXProvider.dismissLoader();
     });
   }
-
 }

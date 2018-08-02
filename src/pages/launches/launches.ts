@@ -53,7 +53,6 @@ export class LaunchDetailsPage {
           return;
       }
 
-      this.spaceXProvider.dismissLoader();
     });
   }
 

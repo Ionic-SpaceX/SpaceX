@@ -36,7 +36,6 @@ export class PastLaunchesPage {
   getPastLaunches(filters){
     this.spaceXProvider.getPastLaunches(filters).subscribe(data => {
       this.pastLaunches = data;
-      this.spaceXProvider.dismissLoader();
     })
   }
 
