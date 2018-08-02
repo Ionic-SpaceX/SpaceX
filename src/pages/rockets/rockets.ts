@@ -15,9 +15,11 @@ import { SpaceXProvider } from '../../providers/space-x/space-x';
 })
 export class RocketDetailsPage {
   rocket;
+  cost;
 
   constructor(params: NavParams) {
-    this.rocket = params.data;
+      this.rocket = params.data;
+      this.cost = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2}).format(params.data.cost_per_launch);
   }
 }
 
