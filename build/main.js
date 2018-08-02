@@ -167,9 +167,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var RocketDetailsPage = /** @class */ (function () {
     function RocketDetailsPage(params) {
         this.rocket = params.data;
+        this.cost = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(params.data.cost_per_launch);
     }
     RocketDetailsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/travis/build/Ionic-SpaceX/SpaceX/src/pages/rockets/rocket-details.html"*/'<!--\n  Generated template for the RocketsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary" *ngIf="rocket">\n    <ion-title>{{ rocket.name }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <ion-card>\n\n      <img *ngIf="rocket.name === \'Falcon 1\'" src="assets/imgs/rockets/falcon1.jpeg">\n      <img *ngIf="rocket.name === \'Falcon 9\'" src="assets/imgs/rockets/falcon9.jpg">\n      <img *ngIf="rocket.name === \'Falcon Heavy\'" src="assets/imgs/rockets/falcon_heavy.jpg">\n\n      <div class="cardContent" text-justify>\n        <ion-card-header text-center color="primary">\n          {{ rocket.name }}\n          <p>\n            <ion-badge [color]="rocket.active ? \'secondary\' : \'danger\'">\n              {{ rocket.active ? \'Active\' : \'Inactive\' }}\n            </ion-badge>\n          </p>\n          <p>\n            <ion-badge color="primary">\n              {{ rocket.success_rate_pct }}% Success Rate\n            </ion-badge>\n          </p>\n        </ion-card-header>\n\n        <ion-card-content>\n          {{ rocket.description }}\n          <ion-row text-center>\n            <ion-col col-6>\n              <ion-badge [color]="rocket.boosters > 0 ? \'secondary\' : \'danger\'">\n                {{ rocket.boosters > 0 ? rocket.boosters + \' Boosters\' : \'No Boosters\' }}\n              </ion-badge>\n            </ion-col>\n\n            <ion-col col-6>\n              <ion-badge color="primary">\n                {{ rocket.stages }} Stages\n              </ion-badge>\n            </ion-col>\n          </ion-row>\n        </ion-card-content>\n\n        <ion-item>\n          <ion-icon color="primary" name="flag" item-start large></ion-icon>\n          <h2 ion-text color="primary">Country</h2>\n          <p>{{ rocket.country }}</p>\n        </ion-item>\n\n        <ion-item>\n          <ion-icon color="primary" name="jet" item-start large></ion-icon>\n          <h2 ion-text color="primary">First Flight</h2>\n          <p>{{ rocket.first_flight }}</p>\n        </ion-item>\n\n        <ion-item>\n          <ion-icon color="primary" name="clipboard" item-start large></ion-icon>\n          <h2 ion-text color="primary">Payload</h2>\n          <p>\n            <strong>Mass: </strong>{{ rocket.mass.kg }} kg / {{ rocket.mass.lb }} lb</p>\n          <p>\n            <strong>Height: </strong>{{ rocket.height.meters }} m / {{ rocket.mass.feet }} feet</p>\n        </ion-item>\n\n        <ion-item>\n          <ion-icon color="primary" name="logo-usd" item-start large></ion-icon>\n          <h2 ion-text color="primary">Cost Per Launch</h2>\n          <p>{{ rocket.cost_per_launch }}\n            <ion-icon name="logo-usd"></ion-icon>\n          </p>\n        </ion-item>\n      </div>\n\n    </ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/Ionic-SpaceX/SpaceX/src/pages/rockets/rocket-details.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/travis/build/Ionic-SpaceX/SpaceX/src/pages/rockets/rocket-details.html"*/'<!--\n  Generated template for the RocketsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary" *ngIf="rocket">\n    <ion-title>{{ rocket.name }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n    <ion-card>\n\n      <img *ngIf="rocket.name === \'Falcon 1\'" src="assets/imgs/rockets/falcon1.jpeg">\n      <img *ngIf="rocket.name === \'Falcon 9\'" src="assets/imgs/rockets/falcon9.jpg">\n      <img *ngIf="rocket.name === \'Falcon Heavy\'" src="assets/imgs/rockets/falcon_heavy.jpg">\n\n      <div class="cardContent" text-justify>\n        <ion-card-header text-center color="primary">\n          {{ rocket.name }}\n          <p>\n            <ion-badge [color]="rocket.active ? \'secondary\' : \'danger\'">\n              {{ rocket.active ? \'Active\' : \'Inactive\' }}\n            </ion-badge>\n          </p>\n          <p>\n            <ion-badge color="primary">\n              {{ rocket.success_rate_pct }}% Success Rate\n            </ion-badge>\n          </p>\n        </ion-card-header>\n\n        <ion-card-content>\n          {{ rocket.description }}\n          <ion-row text-center>\n            <ion-col col-6>\n              <ion-badge [color]="rocket.boosters > 0 ? \'secondary\' : \'danger\'">\n                {{ rocket.boosters > 0 ? rocket.boosters + \' Boosters\' : \'No Boosters\' }}\n              </ion-badge>\n            </ion-col>\n\n            <ion-col col-6>\n              <ion-badge color="primary">\n                {{ rocket.stages }} Stages\n              </ion-badge>\n            </ion-col>\n          </ion-row>\n        </ion-card-content>\n\n        <ion-item>\n          <ion-icon color="primary" name="flag" item-start large></ion-icon>\n          <h2 ion-text color="primary">Country</h2>\n          <p>{{ rocket.country }}</p>\n        </ion-item>\n\n        <ion-item>\n          <ion-icon color="primary" name="jet" item-start large></ion-icon>\n          <h2 ion-text color="primary">First Flight</h2>\n          <p>{{ rocket.first_flight }}</p>\n        </ion-item>\n\n        <ion-item>\n          <ion-icon color="primary" name="clipboard" item-start large></ion-icon>\n          <h2 ion-text color="primary">Payload</h2>\n          <p>\n            <strong>Mass: </strong>{{ rocket.mass.kg }} kg / {{ rocket.mass.lb }} lb</p>\n          <p>\n            <strong>Height: </strong>{{ rocket.height.meters }} m / {{ rocket.mass.feet }} feet</p>\n        </ion-item>\n\n        <ion-item>\n          <ion-icon color="primary" name="logo-usd" item-start large></ion-icon>\n          <h2 ion-text color="primary">Cost Per Launch</h2>\n          <p>{{ cost }}</p>\n        </ion-item>\n      </div>\n\n    </ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/Ionic-SpaceX/SpaceX/src/pages/rockets/rocket-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
     ], RocketDetailsPage);
@@ -286,7 +287,7 @@ var LaunchpadsPage = /** @class */ (function () {
     };
     LaunchpadsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-launchpads',template:/*ion-inline-start:"/home/travis/build/Ionic-SpaceX/SpaceX/src/pages/launchpads/launchpads.html"*/'<!--\n  Generated template for the LaunchpadsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary">\n    <button ion-button menuToggle icon-only>\n      <ion-icon name=\'menu\'></ion-icon>\n    </button>\n    <ion-title>Launchpad List</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list *ngIf="launchpads">\n    <button text-wrap ion-item *ngFor="let launchpad of launchpads" (click)="goToLaunchpadDatails(launchpad)">\n      {{ launchpad.location.name }}\n      <p>{{ launchpad.full_name }}</p>\n      <ion-badge [color]="launchpad.status ? \'secondary\' : \'danger\'" item-end>\n        {{ launchpad.status ? \'Active\' : \'Retired\' }}\n      </ion-badge>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/Ionic-SpaceX/SpaceX/src/pages/launchpads/launchpads.html"*/,
+            selector: 'page-launchpads',template:/*ion-inline-start:"/home/travis/build/Ionic-SpaceX/SpaceX/src/pages/launchpads/launchpads.html"*/'<!--\n  Generated template for the LaunchpadsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="primary">\n    <button ion-button menuToggle icon-only>\n      <ion-icon name=\'menu\'></ion-icon>\n    </button>\n    <ion-title>Launchpad List</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list *ngIf="launchpads">\n    <button text-wrap ion-item *ngFor="let launchpad of launchpads" (click)="goToLaunchpadDatails(launchpad)">\n      {{ launchpad.location.name }}\n      <p>{{ launchpad.full_name }}</p>\n      <ion-badge [color]="launchpad.status === \'active\' ? \'secondary\' : \'danger\'" item-end>\n        {{ launchpad.status === \'active\' ? \'Active\' : \'Retired\' }}\n      </ion-badge>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/travis/build/Ionic-SpaceX/SpaceX/src/pages/launchpads/launchpads.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_space_x_space_x__["a" /* SpaceXProvider */]])
     ], LaunchpadsPage);
@@ -349,10 +350,10 @@ var map = {
 		353
 	],
 	"../pages/settings/settings.module": [
-		354
+		355
 	],
 	"../pages/stats/stats.module": [
-		357
+		354
 	]
 };
 function webpackAsyncContext(req) {
@@ -1445,11 +1446,52 @@ var RocketsPageModule = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatsPageModule", function() { return StatsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stats__ = __webpack_require__(254);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var StatsPageModule = /** @class */ (function () {
+    function StatsPageModule() {
+    }
+    StatsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__stats__["a" /* StatsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stats__["a" /* StatsPage */]),
+            ],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_2__stats__["a" /* StatsPage */],
+            ]
+        })
+    ], StatsPageModule);
+    return StatsPageModule;
+}());
+
+//# sourceMappingURL=stats.module.js.map
+
+/***/ }),
+
+/***/ 355:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsPageModule", function() { return SettingsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cache_cache_details__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cache_cache_details__ = __webpack_require__(357);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1485,14 +1527,14 @@ var SettingsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 355:
+/***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cache_cache_details__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cache_cache_details__ = __webpack_require__(357);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_cache__ = __webpack_require__(75);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1539,7 +1581,7 @@ var SettingsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 356:
+/***/ 357:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1584,47 +1626,6 @@ var CacheDetailsPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=cache-details.js.map
-
-/***/ }),
-
-/***/ 357:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatsPageModule", function() { return StatsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stats__ = __webpack_require__(254);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var StatsPageModule = /** @class */ (function () {
-    function StatsPageModule() {
-    }
-    StatsPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__stats__["a" /* StatsPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__stats__["a" /* StatsPage */]),
-            ],
-            entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_2__stats__["a" /* StatsPage */],
-            ]
-        })
-    ], StatsPageModule);
-    return StatsPageModule;
-}());
-
-//# sourceMappingURL=stats.module.js.map
 
 /***/ }),
 
@@ -1713,8 +1714,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_launches_past_launches_past_launches_module__ = __webpack_require__(256);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_launches_launches_filters_modal_launches_filters_modal_module__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_ionic_cache__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_settings_settings_module__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_stats_stats_module__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_settings_settings_module__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_stats_stats_module__ = __webpack_require__(354);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_login_login_module__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_register_register_module__ = __webpack_require__(352);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__angular_platform_browser_animations__ = __webpack_require__(750);
@@ -1801,8 +1802,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/rockets/rockets.module#RocketsPageModule', name: 'RocketsPage', segment: 'rockets', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/stats/stats.module#StatsPageModule', name: 'StatsPage', segment: 'stats', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/stats/stats.module#StatsPageModule', name: 'StatsPage', segment: 'stats', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_7_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_9__app_firebase_config__["a" /* FIREBASE_CONFIG */]),
@@ -2054,7 +2055,7 @@ var SpaceXProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_capsules_capsules__ = __webpack_require__(245);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_launches_launches__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_cache__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_settings_settings__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_settings_settings__ = __webpack_require__(356);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2_auth__ = __webpack_require__(78);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_launchpads_launchpads__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_screen_orientation__ = __webpack_require__(399);
